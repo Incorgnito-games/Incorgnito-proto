@@ -1,7 +1,7 @@
 namespace Incorgnito.scripts.components.state;
 
 using Godot;
-public abstract partial class State : Node, IState
+public abstract partial class AbstractActionState : Node, IState
 {
     protected StateSignals StateTransitionSignal;
 

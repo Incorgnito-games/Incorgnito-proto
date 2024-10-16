@@ -1,15 +1,67 @@
 namespace Incorgnito.scripts.actors.npc;
 
+using System.Collections.Generic;
 using Godot;
+using components.UtilityAI;
 
 public partial class Npc : CharacterBody3D
 {
 	[Export]
 	public float Speed{
 		get;
+		set;
 	} = 0.5f;
 	public const float JumpVelocity = 4.5f;
+	public List<UtilityTrait> Traits;
 
+	public override void _Ready()
+	{
+		var eatAction = new UtilityAction("Eat", 1.0f);
+		var restAction = new UtilityAction("Rest", 0.8f);
+		var socializeAction = new UtilityAction("Socialize", 0.6f);
+
+		Traits = new List<UtilityTrait>
+		{
+			new UtilityTrait("Hunger", 80, eatAction),
+			new UtilityTrait("Tiredness", 30, restAction),
+			new UtilityTrait("Loneliness", 50, socializeAction)
+		};
+	}
+
+	public override void _Process(double delta)
+	{
+		PreformUtilityAiAction();
+		Traits[0].Value -= 0.1f;
+		GD.Print($"{Traits[0].Name} == > {Traits[0].Value}");
+}
+	
+	public void PreformUtilityAiAction()
+	{
+		UtilityAction bestAction = null;
+		float highestUtility = -1;
+		
+		
+		foreach (var trait in Traits)
+		{
+			float utility = trait.EvaluateUtility();
+            
+			if (utility > highestUtility)
+			{
+				highestUtility = utility;
+				bestAction = trait.AssociatedAction;
+			}
+		}
+
+		if (bestAction != null)
+		{
+			bestAction.Execute(Name);
+		}
+		else
+		{
+			GD.Print($"{Name} has no action to perform.");
+		}
+	}
+	
 	public override void _PhysicsProcess(double delta)
 	{
 		// Vector3 velocity = Velocity;

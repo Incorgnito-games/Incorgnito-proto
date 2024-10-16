@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cko4ymg5gdbnl"]
 
 [ext_resource type="Script" path="res://scripts/actors/npc/Npc.cs" id="1_24ynq"]
-[ext_resource type="Script" path="res://scripts/components/State/StateMachine.cs" id="1_egtj8"]
+[ext_resource type="Script" path="res://scripts/components/State/ActionStateMachine.cs" id="2_6o2yt"]
 [ext_resource type="Script" path="res://scripts/components/State/NPC/Wander.cs" id="3_nr1gm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8t4yn"]
@@ -17,18 +17,17 @@ mesh = SubResource("CapsuleMesh_8t4yn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_d0naj")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("_initialState")]
-script = ExtResource("1_egtj8")
-_initialState = NodePath("Wander")
+[node name="ActionStateMachine" type="Node" parent="."]
+script = ExtResource("2_6o2yt")
 
-[node name="Socialize" type="Node" parent="StateMachine"]
+[node name="Socialize" type="Node" parent="ActionStateMachine"]
 
-[node name="Eat" type="Node" parent="StateMachine"]
+[node name="Eat" type="Node" parent="ActionStateMachine"]
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="ActionStateMachine"]
 
-[node name="Wander" type="Node" parent="StateMachine" node_paths=PackedStringArray("_npc")]
+[node name="Wander" type="Node" parent="ActionStateMachine" node_paths=PackedStringArray("_npc")]
 script = ExtResource("3_nr1gm")
 _npc = NodePath("../..")
 
-[node name="Sleep" type="Node" parent="StateMachine"]
+[node name="Sleep" type="Node" parent="ActionStateMachine"]

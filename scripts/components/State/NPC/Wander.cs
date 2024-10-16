@@ -5,7 +5,7 @@ using Godot;
 using actors.npc;
 using state;
 
-public partial class Wander: State
+public partial class Wander: AbstractActionState
 {
     //character modifiers
     [Export] private Npc _npc;

@@ -5,7 +5,7 @@ using Godot;
 public partial class StateSignals : Node
 {
     [Signal]
-    public delegate void TransitionStateEventHandler(State state, string stateName);
+    public delegate void TransitionStateEventHandler(AbstractActionState abstractActionState, string stateName);
 
 
 }
