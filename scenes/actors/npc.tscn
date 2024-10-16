@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cko4ymg5gdbnl"]
+
+[ext_resource type="Script" path="res://scripts/actors/npc/Npc.cs" id="1_24ynq"]
+[ext_resource type="Script" path="res://scripts/components/State/StateMachine.cs" id="1_egtj8"]
+[ext_resource type="Script" path="res://scripts/components/State/NPC/Wander.cs" id="3_nr1gm"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8t4yn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d0naj"]
+
+[node name="NPC" type="CharacterBody3D"]
+script = ExtResource("1_24ynq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_8t4yn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_d0naj")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("1_egtj8")
+
+[node name="Lonely" type="Node" parent="StateMachine"]
+
+[node name="Hungry" type="Node" parent="StateMachine"]
+
+[node name="Idle" type="Node" parent="StateMachine"]
+
+[node name="Wander" type="Node" parent="StateMachine"]
+script = ExtResource("3_nr1gm")
+
+[node name="Tired" type="Node" parent="StateMachine"]
