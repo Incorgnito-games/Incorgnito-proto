@@ -17,8 +17,9 @@ mesh = SubResource("CapsuleMesh_8t4yn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_d0naj")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("_initialState")]
 script = ExtResource("1_egtj8")
+_initialState = NodePath("Wander")
 
 [node name="Lonely" type="Node" parent="StateMachine"]
 
@@ -26,7 +27,8 @@ script = ExtResource("1_egtj8")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 
-[node name="Wander" type="Node" parent="StateMachine"]
+[node name="Wander" type="Node" parent="StateMachine" node_paths=PackedStringArray("_npc")]
 script = ExtResource("3_nr1gm")
+_npc = NodePath("../..")
 
 [node name="Tired" type="Node" parent="StateMachine"]

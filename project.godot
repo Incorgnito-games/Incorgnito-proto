@@ -10,14 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Incorgnito"
+config/name="Incorgnito-Proto"
 run/main_scene="res://scenes/city_scene.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-StateSignal="*res://scripts/components/State/StateSignal.cs"
+StateSignals="*res://scripts/components/State/StateSignals.cs"
 
 [dotnet]
 

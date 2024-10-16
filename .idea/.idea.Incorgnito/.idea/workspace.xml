@@ -5,15 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3089ef88-b898-4c23-8aa0-76bdd709130d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/components/State/IState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/components/State/NPC/Wander.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/components/State/State.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/components/State/StateSignal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/actors/npc.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/actors/npc.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/actors/npc/Npc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/actors/npc/Npc.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/components/State/NPC/Wander.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/components/State/NPC/Wander.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/components/State/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/components/State/State.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/components/State/StateSignal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/components/State/StateSignals.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -32,8 +38,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;.NET Executable.Player.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -92,6 +100,8 @@
       <workItem from="1727137594119" duration="106000" />
       <workItem from="1729054455693" duration="1548000" />
       <workItem from="1729056035247" duration="2000" />
+      <workItem from="1729056065955" duration="616000" />
+      <workItem from="1729056723616" duration="680000" />
     </task>
     <servers />
   </component>

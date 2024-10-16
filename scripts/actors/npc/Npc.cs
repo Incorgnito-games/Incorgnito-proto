@@ -1,12 +1,12 @@
+namespace Incorgnito.scripts.actors.npc;
+
 using Godot;
-using System;
 
 public partial class Npc : CharacterBody3D
 {
 	public float Speed{
 		get;
-		set;
-	} = 5.0f;
+	} = 0.5f;
 	public const float JumpVelocity = 4.5f;
 
 	public override void _PhysicsProcess(double delta)

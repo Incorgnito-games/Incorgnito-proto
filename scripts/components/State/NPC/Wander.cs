@@ -2,6 +2,9 @@ namespace Incorgnito.scripts.components.state.NPC;
 
 using Godot;
 
+using actors.npc;
+using state;
+
 public partial class Wander: State
 {
     //character modifiers
@@ -41,7 +44,6 @@ public partial class Wander: State
         AddChild(_randSpeedAdjustmentTimer);
 
         _currentBearing = new Vector3(GD.RandRange(-1,1),0,GD.RandRange(-1,1));
-         // _meat.Velocity = _currentBearing * (float)_meat.baseSpeed;
     } 
 
     public override void UpdatePhysicsProcess(double delta)
@@ -64,7 +66,7 @@ public partial class Wander: State
         
         var direction = GD.Randi() % 20;
 
-        _currentBearing = new Vector3(GD.RandRange(-1,1),0,GD.RandRange(-1,1));
+        _currentBearing = new Vector3(GD.RandRange(-1,1),0,GD.RandRange(-1,1)).Normalized();
         
     }
     
