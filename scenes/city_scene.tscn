@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cotw4n4ywong5"]
+[gd_scene load_steps=8 format=3 uid="uid://cotw4n4ywong5"]
 
+[ext_resource type="PackedScene" uid="uid://bdph25s15icec" path="res://scenes/building.tscn" id="1_2jkkl"]
 [ext_resource type="PackedScene" uid="uid://cko4ymg5gdbnl" path="res://scenes/actors/npc.tscn" id="1_2ue7f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vgtj"]
@@ -7,18 +8,6 @@ albedo_color = Color(0.901294, 0.444813, 0.214204, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ptwsj"]
 albedo_color = Color(0.901961, 0.443137, 0.215686, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_755lr"]
-albedo_color = Color(0.027451, 0.0313726, 1, 0.266667)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_naxpv"]
-albedo_color = Color(1, 0.290196, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4cq2"]
-albedo_color = Color(0.866667, 0.87451, 0.0588235, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46esr"]
-albedo_color = Color(1.51612e-06, 0.653202, 5.77569e-07, 1)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pkipv"]
 
@@ -35,61 +24,28 @@ ambient_light_source = 3
 [node name="BuildingContainer" type="CSGCombiner3D" parent="."]
 
 [node name="Ground" type="CSGBox3D" parent="BuildingContainer"]
-transform = Transform3D(1, 0, 0, 0, 0.0688578, 0, 0, 0, 1, 0, -0.52429, 0)
+transform = Transform3D(1, 0, 0, 0, 0.0688578, 0, 0, 0, 1, 0, -1.5, 0)
 material_override = SubResource("StandardMaterial3D_1vgtj")
 snap = 0.1
 size = Vector3(100, 1, 100)
 material = SubResource("StandardMaterial3D_ptwsj")
+metadata/_edit_lock_ = true
 
-[node name="HomeBuilding" type="CSGBox3D" parent="BuildingContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 1, -2)
-size = Vector3(3, 3, 3)
-material = SubResource("StandardMaterial3D_755lr")
+[node name="BarBuilding" parent="BuildingContainer" instance=ExtResource("1_2jkkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.72421, 0, -8.97135)
+_typeName = "Bar"
 
-[node name="Label3D" type="Label3D" parent="BuildingContainer/HomeBuilding"]
-transform = Transform3D(-10.1118, 0, 0, 0, 12.3929, 0, 0, 0, 1, 1.90567, 3.00896, 0.443642)
-billboard = 1
-text = "Home
-"
+[node name="HomeBuilding" parent="BuildingContainer" instance=ExtResource("1_2jkkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1675, 0, 13.4816)
+_typeName = "Home"
 
-[node name="WorkBuilding" type="CSGBox3D" parent="BuildingContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 1, 13)
-size = Vector3(3, 3, 3)
-material = SubResource("StandardMaterial3D_naxpv")
+[node name="RestaurantBuilding" parent="BuildingContainer" instance=ExtResource("1_2jkkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7817, 0, -5.99431)
+_typeName = "Restaurant"
 
-[node name="Label3D2" type="Label3D" parent="BuildingContainer/WorkBuilding"]
-transform = Transform3D(-10.1118, 0, 0, 0, 12.3929, 0, 0, 0, 1, 17.4267, 1.64613, -12.6846)
-billboard = 1
-text = "Work
-
-"
-
-[node name="BarBuilding" type="CSGBox3D" parent="BuildingContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1, 5)
-size = Vector3(3, 3, 3)
-material = SubResource("StandardMaterial3D_b4cq2")
-
-[node name="Label3D3" type="Label3D" parent="BuildingContainer/BarBuilding"]
-transform = Transform3D(-10.1118, 0, 0, 0, 12.3929, 0, 0, 0, 1, -0.828693, 1.9904, -0.119879)
-billboard = 1
-text = "Bar
-
-"
-
-[node name="RestaurantBuilding" type="CSGBox3D" parent="BuildingContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.66544, 1, 0.085875)
-size = Vector3(3, 3, 3)
-material = SubResource("StandardMaterial3D_46esr")
-
-[node name="Label3D4" type="Label3D" parent="BuildingContainer/RestaurantBuilding"]
-transform = Transform3D(-10.1118, 0, 0, 0, 12.3929, 0, 0, 0, 1, -15.6478, 2.35517, 11.0077)
-billboard = 1
-text = "Restaurant
-
-"
-
-[node name="NPC" parent="BuildingContainer" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.604706, 0.488976, 10.0689)
+[node name="WorkBuilding" parent="BuildingContainer" instance=ExtResource("1_2jkkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.9888, 0, -3.01727)
+_typeName = "Work"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.907044, -0.223115, 0.357059, 0, 0.848048, 0.529919, -0.421036, -0.48066, 0.769217, 11.5762, 20.0742, 33.1178)
@@ -102,3 +58,6 @@ environment = SubResource("Environment_364ig")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(-0.836516, 0.0173376, -0.547668, -0.545085, 0.0756105, 0.834965, 0.0558857, 0.996987, -0.053799, 0, 16, 0)
 shadow_enabled = true
+
+[node name="NPC" parent="." instance=ExtResource("1_2ue7f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09289, 0.113505, 13.8799)

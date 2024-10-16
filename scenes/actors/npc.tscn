@@ -21,9 +21,9 @@ shape = SubResource("CapsuleShape3D_d0naj")
 script = ExtResource("1_egtj8")
 _initialState = NodePath("Wander")
 
-[node name="Lonely" type="Node" parent="StateMachine"]
+[node name="Socialize" type="Node" parent="StateMachine"]
 
-[node name="Hungry" type="Node" parent="StateMachine"]
+[node name="Eat" type="Node" parent="StateMachine"]
 
 [node name="Idle" type="Node" parent="StateMachine"]
 
@@ -31,4 +31,4 @@ _initialState = NodePath("Wander")
 script = ExtResource("3_nr1gm")
 _npc = NodePath("../..")
 
-[node name="Tired" type="Node" parent="StateMachine"]
+[node name="Sleep" type="Node" parent="StateMachine"]

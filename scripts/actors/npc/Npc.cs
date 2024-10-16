@@ -4,6 +4,7 @@ using Godot;
 
 public partial class Npc : CharacterBody3D
 {
+	[Export]
 	public float Speed{
 		get;
 	} = 0.5f;
