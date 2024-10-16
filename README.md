@@ -1,2 +1,2 @@
-# Incorgnito
-main repo for game development
+# Incorgnito-Proto
+proto typing repo for game mechanic testing
