@@ -4,12 +4,13 @@ using Godot;
 using actors.npc;
 public abstract partial class AbstractActionState : Node, IState
 {
-    protected StateSignals StateTransitionSignal;
+    protected StateSignals StateSignals;
     [Export] protected Npc Npc;
 
     public override void _Ready()
     {
-        StateTransitionSignal = GetNode<StateSignals>("/root/StateSignals");
+        StateSignals = GetNode<StateSignals>("/root/StateSignals");
+        
     }
     public abstract void Enter();
     public abstract void Exit();

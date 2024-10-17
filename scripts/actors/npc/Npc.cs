@@ -12,7 +12,8 @@ public partial class Npc : CharacterBody3D
 
 	[Signal]
 	public delegate void UpdateNpcTraitStatsEventHandler(float hunger, float rest, float social);
-	
+
+	public string DebugMessage;
 	private ActionStateMachine _stateMachine;
 	private Dictionary<string, Vector3> BuildingLocations;
 	[Export] public CsgCombiner3D BuildingMap;
@@ -78,7 +79,7 @@ public partial class Npc : CharacterBody3D
 		if (bestAction != null)
 		{
 			//send state signal
-			_stateMachine.TransitionStateSignal.EmitSignal(nameof(StateSignals.TransitionState), _stateMachine.CurrentActionState, bestAction.State.ToString());
+			_stateMachine.StateSignals.EmitSignal(nameof(StateSignals.TransitionState), _stateMachine.CurrentActionState, bestAction.State.ToString());
 			// bestAction.State;
 		}
 		else

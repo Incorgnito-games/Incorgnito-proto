@@ -10,11 +10,11 @@ public partial class ActionStateMachine : Node
 	[Export] private AbstractActionState _initialActionState;
 	public readonly Dictionary <String, AbstractActionState> StateDict = new Dictionary<String, AbstractActionState>();
 	public AbstractActionState CurrentActionState;
-	public StateSignals TransitionStateSignal;
+	public StateSignals StateSignals;
     
 	public override void _Ready()
 	{
-		TransitionStateSignal = GetNode<StateSignals>("/root/StateSignals");
+		StateSignals = GetNode<StateSignals>("/root/StateSignals");
 		foreach (var child in this.GetChildren())
 		{
 			if (child is AbstractActionState)
@@ -27,7 +27,8 @@ public partial class ActionStateMachine : Node
 		
 					
                 
-				TransitionStateSignal.TransitionState += OnStateTransition;
+				StateSignals.TransitionState += OnStateTransition;
+				
 			}
 		}
 

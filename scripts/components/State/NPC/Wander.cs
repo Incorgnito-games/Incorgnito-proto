@@ -56,6 +56,7 @@ public partial class Wander: AbstractActionState
 
     private void _randomWalk()
     {
+        StateSignals.EmitSignal(nameof(StateSignals.StateDebugMessage),this, "Wandering...");
         Npc.Velocity = _currentBearing * Npc.Speed;
 
         Npc.MoveAndSlide();

@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://bawhqhem6xjdi"]
+
+[ext_resource type="Script" path="res://scripts/ui/NPCTraitStatsUI.cs" id="1_lvjaq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jipr2"]
+font_color = Color(1, 0.215686, 0.145098, 1)
+outline_size = 6
+outline_color = Color(0.0470588, 0.0509804, 0.0431373, 1)
+
+[node name="NPCTraitStatsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.24, 0.333333)
+script = ExtResource("1_lvjaq")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(5.94625, 4.76667)
+vertical = true
+
+[node name="HungerCont" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="HungerLabel" type="Label" parent="BoxContainer/HungerCont"]
+layout_mode = 2
+text = "Hunger:"
+
+[node name="HungerLabelValue" type="Label" parent="BoxContainer/HungerCont"]
+layout_mode = 2
+text = "_"
+
+[node name="RestCont" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="RestLabel" type="Label" parent="BoxContainer/RestCont"]
+layout_mode = 2
+text = "Rest:
+"
+
+[node name="RestLabelValue" type="Label" parent="BoxContainer/RestCont"]
+layout_mode = 2
+text = "_"
+
+[node name="SocialCont" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="SocailLabel" type="Label" parent="BoxContainer/SocialCont"]
+layout_mode = 2
+text = "Social: "
+
+[node name="SocialLabelValue" type="Label" parent="BoxContainer/SocialCont"]
+layout_mode = 2
+text = "_"
+
+[node name="DebugMessage" type="Label" parent="."]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 1701.0
+offset_right = 629.0
+offset_bottom = 1724.0
+scale = Vector2(6.93445, 3.86735)
+text = "This is the Debug message"
+label_settings = SubResource("LabelSettings_jipr2")

@@ -16,6 +16,7 @@ public partial class GoToWork: AbstractActionState
 
     public override void UpdateProcess(double delta)
     {
+        StateSignals.EmitSignal(nameof(StateSignals.StateDebugMessage),this, "Need to go to work");
         GD.Print("Need to go to work");
     }
 
