@@ -9,13 +9,16 @@ using System.Collections.Generic;
 
 public partial class Npc : CharacterBody3D
 {
+	private int _hungerMultiplier = 1;
+	private int _restMultiplier = 1;
+	private int _socialMultiplier = 1;
 
 	[Signal]
 	public delegate void UpdateNpcTraitStatsEventHandler(float hunger, float rest, float social);
 	public string DebugMessage;
 	private ActionStateMachine _stateMachine;
 	public Dictionary<string, Vector3> BuildingLocations;
-	[Export] public CsgCombiner3D BuildingMap;
+	[Export] public Node BuildingMap;
 	[Export]
 	public float Speed{
 		get;
@@ -43,7 +46,7 @@ public partial class Npc : CharacterBody3D
 		foreach (var building in BuildingMap.GetChildren())
 		{
 			GD.Print(building.ToString());
-			BuildingLocations.Add(building.ToString(), ((CsgBox3D)building).GlobalPosition);
+			BuildingLocations.Add(building.ToString(), ((StaticBody3D)building).GlobalPosition);
 		}
 		
 		
@@ -52,8 +55,11 @@ public partial class Npc : CharacterBody3D
 	public override void _Process(double delta)
 	{
 		PreformUtilityAiAction();
-		//add timers or mechanic to reduce values
-		Traits[0].Value -= 0.00001f;
+		//add timers or mechanic to reduce values--> naive for now
+		
+		Traits[0].Value = (Traits[0].Value > 0 && Traits[0].Value < 100) ? Traits[0].Value -= 0.05f * _hungerMultiplier: Traits[0].Value ; //hunger
+		Traits[1].Value = (Traits[1].Value > 0 && Traits[1].Value < 100) ? Traits[1].Value -= 0.08f * _restMultiplier: Traits[1].Value ; //rest
+		Traits[2].Value = (Traits[2].Value > 0 && Traits[2].Value < 100) ? Traits[2].Value -= 0.005f * _socialMultiplier: Traits[2].Value ; //social
 		EmitSignal(SignalName.UpdateNpcTraitStats, Traits[0].Value,Traits[1].Value,Traits[2].Value);
 		// GD.Print($"{Traits[0].Name} == > {Traits[0].Value}");
 		// GD.Print($"{Traits[1].Name} == > {Traits[1].Value}");
@@ -87,5 +93,51 @@ public partial class Npc : CharacterBody3D
 		{
 			GD.Print($"{Name} has no action to perform.");
 		}
+	}
+
+	public void OnBarEntered(Node3D body)
+	{
+		GD.Print("Ah Water for my Horses!");
+		_socialMultiplier = -2;
+	}
+	public void OnBarExited(Node3D body)
+	{
+		GD.Print("Ah Water for my Horses!");
+		_socialMultiplier = 1;
+	}
+
+	public void OnRestaurantEntered(Node3D body)
+	{
+		GD.Print("I could eat a horse!");
+		_hungerMultiplier = -3;
+
+	}
+	public void OnRestaurantExited(Node3D body)
+	{
+		GD.Print("I could eat a horse!");
+		_hungerMultiplier = 1;
+
+	}
+
+	public void OnHomeEntered(Node3D body)
+	{
+		GD.Print("Honey im Home!");
+		_restMultiplier = -2;
+	}
+	public void OnHomeExited(Node3D body)
+	{
+		GD.Print("Honey im Home!");
+		_restMultiplier = 1;
+	}
+
+	public void OnWorkEntered()
+	{
+		GD.Print("Ahh fuck..");
+		_restMultiplier = -2;
+	}
+	public void OnWorkExited()
+	{
+		GD.Print("Ahh fuck..");
+		_restMultiplier = 1;
 	}
 }

@@ -3,7 +3,7 @@ namespace Incorgnito.scripts.model;
 using Godot;
 
 
-public partial class Building : CsgBox3D
+public partial class Building : StaticBody3D
 {
 
 	[Export]private string _typeName;
@@ -15,7 +15,7 @@ public partial class Building : CsgBox3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		_buildingLabel = GetNode<Label3D>("Label3D");
+		_buildingLabel = GetNode<Label3D>("BuildingBox/Label3D");
 		_buildingLabel.Text = _typeName;
 
 		

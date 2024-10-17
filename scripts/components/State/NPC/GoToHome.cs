@@ -21,6 +21,15 @@ public partial class GoToHome: AbstractActionState
 
     public override void UpdatePhysicsProcess(double delta)
     {
+        var dir = new Vector3();
+        var velocity = Npc.Velocity;
+        // GD.Print(Npc.BuildingLocations["bar"]);
+        NavAgent.TargetPosition = Npc.BuildingLocations["home"];
+        dir = (NavAgent.GetNextPathPosition() - Npc.GlobalPosition).Normalized();
+
+        Npc.Velocity = dir * Npc.Speed;
+        Npc.MoveAndSlide(); 
+        
     }
     public override string ToString()
     {

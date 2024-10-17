@@ -22,6 +22,14 @@ public partial class GoToWork: AbstractActionState
 
     public override void UpdatePhysicsProcess(double delta)
     {
+        var dir = new Vector3();
+        var velocity = Npc.Velocity;
+        // GD.Print(Npc.BuildingLocations["restaurant"]);
+        NavAgent.TargetPosition = Npc.BuildingLocations["work"];
+        dir = (NavAgent.GetNextPathPosition() - Npc.GlobalPosition).Normalized();
+
+        Npc.Velocity = dir * Npc.Speed;
+        Npc.MoveAndSlide();
     }
     public override string ToString()
     {
