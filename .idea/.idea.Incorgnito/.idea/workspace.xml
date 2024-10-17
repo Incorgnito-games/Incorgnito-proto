@@ -6,22 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="3089ef88-b898-4c23-8aa0-76bdd709130d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/building.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/building.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/city_scene.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/city_scene.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/actors/npc/Npc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/actors/npc/Npc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/components/State/NPC/GoToBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/components/State/NPC/GoToBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/components/State/NPC/GoToHome.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/components/State/NPC/GoToHome.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/components/State/NPC/GoToWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/components/State/NPC/GoToWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/model/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/model/Building.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/components/UtilityAI/UtilityTrait.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/components/UtilityAI/UtilityTrait.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="DpaMonitoringSettings">
-    <option name="autoShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -103,7 +94,7 @@
       <workItem from="1729054455693" duration="1548000" />
       <workItem from="1729056035247" duration="2000" />
       <workItem from="1729056065955" duration="616000" />
-      <workItem from="1729056723616" duration="31497000" />
+      <workItem from="1729056723616" duration="34094000" />
     </task>
     <servers />
   </component>

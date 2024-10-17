@@ -18,6 +18,6 @@ public class UtilityTrait
 
     public float EvaluateUtility()
     {
-        return Value * AssociatedAction.Importance;
+        return (100 - Value) * AssociatedAction.Importance;
     }
 }

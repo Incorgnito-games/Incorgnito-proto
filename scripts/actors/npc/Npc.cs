@@ -8,11 +8,24 @@ using components.UtilityAI;
 using System.Collections.Generic;
 
 public partial class Npc : CharacterBody3D
+
 {
+	[Export] private float _startingHunger = 80;
+	[Export] private float _startingSocial = 50;
+	[Export] private float _startingEnergy = 80;
+	
+	[Export] private float _hungerImportance = 0.9f;
+	[Export] private float _socialImportance = 0.6f;
+	[Export] private float _restImportance = 0.3f;
+	
+	[Export] private float _hungerDrain = 0.5f;
+	[Export] private float _socialDrain =0.6f;
+	[Export] private float _energyDrain=0.05f;
+	
 	private int _hungerMultiplier = 1;
 	private int _restMultiplier = 1;
 	private int _socialMultiplier = 1;
-
+	private Vector3 velocity;
 	[Signal]
 	public delegate void UpdateNpcTraitStatsEventHandler(float hunger, float rest, float social);
 	public string DebugMessage;
@@ -32,15 +45,15 @@ public partial class Npc : CharacterBody3D
 		BuildingLocations = new Dictionary<string, Vector3>();
 		_stateMachine = GetNode<ActionStateMachine>("ActionStateMachine");
 		GD.Print(_stateMachine.StateDict.Count.ToString());
-		var eatAction = new UtilityAction("Eat", 1.0f, _stateMachine.StateDict["GoToRestaurant"]);
-		var restAction = new UtilityAction("Rest", 0.8f, _stateMachine.StateDict["GoToHome"]);
-		var socializeAction = new UtilityAction("Socialize", 0.6f, _stateMachine.StateDict["GoToBar"]);
+		var eatAction = new UtilityAction("Eat", _hungerImportance, _stateMachine.StateDict["GoToRestaurant"]);
+		var restAction = new UtilityAction("Rest", _restImportance, _stateMachine.StateDict["GoToHome"]);
+		var socializeAction = new UtilityAction("Socialize", _socialImportance, _stateMachine.StateDict["GoToBar"]);
 
 		Traits = new List<UtilityTrait>
 		{
-			new UtilityTrait("Hunger", 80, eatAction),
-			new UtilityTrait("Tiredness", 60, restAction),
-			new UtilityTrait("Loneliness", 50, socializeAction)
+			new UtilityTrait("Hunger", _startingHunger, eatAction),
+			new UtilityTrait("Tiredness", _startingEnergy, restAction),
+			new UtilityTrait("Loneliness", _startingSocial, socializeAction)
 		};
 
 		foreach (var building in BuildingMap.GetChildren())
@@ -56,10 +69,14 @@ public partial class Npc : CharacterBody3D
 	{
 		PreformUtilityAiAction();
 		//add timers or mechanic to reduce values--> naive for now
-		
-		Traits[0].Value = (Traits[0].Value > 0 && Traits[0].Value < 100) ? Traits[0].Value -= 0.05f * _hungerMultiplier: Traits[0].Value ; //hunger
-		Traits[1].Value = (Traits[1].Value > 0 && Traits[1].Value < 100) ? Traits[1].Value -= 0.08f * _restMultiplier: Traits[1].Value ; //rest
-		Traits[2].Value = (Traits[2].Value > 0 && Traits[2].Value < 100) ? Traits[2].Value -= 0.005f * _socialMultiplier: Traits[2].Value ; //social
+		GD.Print(Velocity);
+		if (Velocity == Vector3.Zero)
+		{
+		Traits[0].Value = (Traits[0].Value > 0 && Traits[0].Value < 100) ? Traits[0].Value -= _hungerDrain* (float)delta * _hungerMultiplier: Traits[0].Value ; //hunger
+			
+		Traits[1].Value = (Traits[1].Value > 0 && Traits[1].Value < 100) ? Traits[1].Value -= _energyDrain * (float)delta *_restMultiplier: Traits[1].Value ; //rest
+		Traits[2].Value = (Traits[2].Value > 0 && Traits[2].Value < 100) ? Traits[2].Value -= _socialDrain * (float)delta *_socialMultiplier: Traits[2].Value ; //social
+		}	
 		EmitSignal(SignalName.UpdateNpcTraitStats, Traits[0].Value,Traits[1].Value,Traits[2].Value);
 		// GD.Print($"{Traits[0].Name} == > {Traits[0].Value}");
 		// GD.Print($"{Traits[1].Name} == > {Traits[1].Value}");
@@ -75,7 +92,10 @@ public partial class Npc : CharacterBody3D
 		foreach (var trait in Traits)
 		{
 			float utility = trait.EvaluateUtility();
-            
+			if (trait.Value >= 90)
+			{
+				continue;
+			}
 			if (utility > highestUtility)
 			{
 				highestUtility = utility;
@@ -102,19 +122,19 @@ public partial class Npc : CharacterBody3D
 	}
 	public void OnBarExited(Node3D body)
 	{
-		GD.Print("Ah Water for my Horses!");
+		GD.Print("12 dollars a pint! pfff...");
 		_socialMultiplier = 1;
 	}
 
 	public void OnRestaurantEntered(Node3D body)
 	{
 		GD.Print("I could eat a horse!");
-		_hungerMultiplier = -3;
+		_hungerMultiplier = -4;
 
 	}
 	public void OnRestaurantExited(Node3D body)
 	{
-		GD.Print("I could eat a horse!");
+		GD.Print("oh god i think i ate a horse!");
 		_hungerMultiplier = 1;
 
 	}
@@ -122,11 +142,11 @@ public partial class Npc : CharacterBody3D
 	public void OnHomeEntered(Node3D body)
 	{
 		GD.Print("Honey im Home!");
-		_restMultiplier = -2;
+		_restMultiplier = -5;
 	}
 	public void OnHomeExited(Node3D body)
 	{
-		GD.Print("Honey im Home!");
+		GD.Print("Astalavista Baby!");
 		_restMultiplier = 1;
 	}
 
@@ -137,7 +157,7 @@ public partial class Npc : CharacterBody3D
 	}
 	public void OnWorkExited()
 	{
-		GD.Print("Ahh fuck..");
+	GD.Print("Freedom!");
 		_restMultiplier = 1;
 	}
 }
