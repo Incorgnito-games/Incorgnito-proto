@@ -1,3 +1,5 @@
+using Incorgnito.scripts.components.state;
+
 namespace Incorgnito.scripts.components.UtilityAI;
 
 using Godot;
@@ -5,17 +7,22 @@ using Godot;
 public class UtilityAction
 {
     public string Name { get; set; }     
-    public float Importance { get; set; } 
+    public float Importance { get; set; }
+    public AbstractActionState State;
 
-    public UtilityAction(string name, float importance)
+
+    public UtilityAction(string name, float importance, AbstractActionState state)
     {
         Name = name;
-        Importance = importance;
+        Importance = importance; 
+        State = state;
     }
 
     public void Execute(string npcName)
     {
+        
         GD.Print($"{npcName} will: {Name}");
-        //state change etc
+        //send state change signal
+        // _stateTransitionSignal.EmitSignal(nameof(StateSignals.TransitionState), this, "idle");
     }
 }

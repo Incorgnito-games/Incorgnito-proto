@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cko4ymg5gdbnl"]
+[gd_scene load_steps=9 format=3 uid="uid://cko4ymg5gdbnl"]
 
 [ext_resource type="Script" path="res://scripts/actors/npc/Npc.cs" id="1_24ynq"]
 [ext_resource type="Script" path="res://scripts/components/State/ActionStateMachine.cs" id="2_6o2yt"]
 [ext_resource type="Script" path="res://scripts/components/State/NPC/Wander.cs" id="3_nr1gm"]
+[ext_resource type="Script" path="res://scripts/components/State/NPC/GoToBar.cs" id="3_nyn6g"]
+[ext_resource type="Script" path="res://scripts/components/State/NPC/GoToRestaurant.cs" id="4_mbggj"]
+[ext_resource type="Script" path="res://scripts/components/State/NPC/GoToHome.cs" id="6_4wm2k"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8t4yn"]
 
@@ -20,14 +23,22 @@ shape = SubResource("CapsuleShape3D_d0naj")
 [node name="ActionStateMachine" type="Node" parent="."]
 script = ExtResource("2_6o2yt")
 
-[node name="Socialize" type="Node" parent="ActionStateMachine"]
-
-[node name="Eat" type="Node" parent="ActionStateMachine"]
+[node name="GoToBar" type="Node" parent="ActionStateMachine" node_paths=PackedStringArray("Npc")]
+script = ExtResource("3_nyn6g")
+Npc = NodePath("../..")
 
 [node name="Idle" type="Node" parent="ActionStateMachine"]
 
-[node name="Wander" type="Node" parent="ActionStateMachine" node_paths=PackedStringArray("_npc")]
+[node name="Wander" type="Node" parent="ActionStateMachine" node_paths=PackedStringArray("Npc")]
 script = ExtResource("3_nr1gm")
-_npc = NodePath("../..")
+Npc = NodePath("../..")
 
-[node name="Sleep" type="Node" parent="ActionStateMachine"]
+[node name="GoToRestaurant" type="Node" parent="ActionStateMachine" node_paths=PackedStringArray("Npc")]
+script = ExtResource("4_mbggj")
+Npc = NodePath("../..")
+
+[node name="GoToHome" type="Node" parent="ActionStateMachine" node_paths=PackedStringArray("Npc")]
+script = ExtResource("6_4wm2k")
+Npc = NodePath("../..")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

@@ -9,56 +9,68 @@ public partial class ActionStateMachine : Node
 {
 	[Export] private AbstractActionState _initialActionState;
 	public readonly Dictionary <String, AbstractActionState> StateDict = new Dictionary<String, AbstractActionState>();
-	private AbstractActionState _currentActionState;
-	private StateSignals _transitionStateSignal;
+	public AbstractActionState CurrentActionState;
+	public StateSignals TransitionStateSignal;
     
 	public override void _Ready()
 	{
-		_transitionStateSignal = GetNode<StateSignals>("/root/StateSignals");
+		TransitionStateSignal = GetNode<StateSignals>("/root/StateSignals");
 		foreach (var child in this.GetChildren())
 		{
 			if (child is AbstractActionState)
 			{
 				if (child.Name is not null)
-					StateDict.Add(((string)child.Name).ToLower(), (AbstractActionState)child);
+				{
+					GD.Print((string)child.Name);
+					StateDict.Add(child.Name, (AbstractActionState)child);
+				}
+		
+					
                 
-				_transitionStateSignal.TransitionState += OnStateTransition;
+				TransitionStateSignal.TransitionState += OnStateTransition;
 			}
 		}
 
 		if (_initialActionState is not null)
 		{
 			_initialActionState.Enter();
-			_currentActionState = _initialActionState;
+			CurrentActionState = _initialActionState;
 		}
 	}
     
 	public override void _PhysicsProcess(double delta)
 	{
-		if (_currentActionState is not null)
+		if (CurrentActionState is not null)
 		{
-			_currentActionState.UpdatePhysicsProcess(delta); 
+			CurrentActionState.UpdatePhysicsProcess(delta); 
+		}
+	}
+	public override void _Process(double delta)
+	{
+		if (CurrentActionState is not null)
+		{
+			CurrentActionState.UpdateProcess(delta); 
 		}
 	}
 
 	private void OnStateTransition(AbstractActionState abstractActionState, string stateName)
 	{
-		if (abstractActionState != _currentActionState)
+		if (abstractActionState != CurrentActionState)
 		{
 			return;
 		}
 
-		var newState = StateDict[stateName.ToLower()];
+		var newState = StateDict[stateName];
 		if (newState is null)
 			return;
 
-		if (_currentActionState is not null)
+		if (CurrentActionState is not null)
 		{
-			_currentActionState.Exit();
+			CurrentActionState.Exit();
 		}
         
 		newState.Enter();
-		_currentActionState = newState;
+		CurrentActionState = newState;
 
 	}
 }

@@ -25,4 +25,9 @@ public partial class Building : CsgBox3D
 	public override void _Process(double delta)
 	{
 	}
+
+	public override string ToString()
+	{
+		return _typeName;
+	}
 }

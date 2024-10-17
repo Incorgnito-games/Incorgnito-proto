@@ -8,7 +8,6 @@ using state;
 public partial class Wander: AbstractActionState
 {
     //character modifiers
-    [Export] private Npc _npc;
     private Vector3 _currentBearing;
     
     //signal fields
@@ -17,7 +16,7 @@ public partial class Wander: AbstractActionState
     
     public override void Enter()
     {
-        if (_npc is null)
+        if (Npc is null)
         {
             return;
         }
@@ -49,7 +48,7 @@ public partial class Wander: AbstractActionState
     public override void UpdatePhysicsProcess(double delta)
     {
       
-        if (_npc is not null)
+        if (Npc is not null)
         {
             _randomWalk();
         }
@@ -57,9 +56,9 @@ public partial class Wander: AbstractActionState
 
     private void _randomWalk()
     {
-        _npc.Velocity = _currentBearing * _npc.Speed;
+        Npc.Velocity = _currentBearing * Npc.Speed;
 
-        _npc.MoveAndSlide();
+        Npc.MoveAndSlide();
     }
     private void _setRandomBearing()
     {
@@ -77,6 +76,11 @@ public partial class Wander: AbstractActionState
     private void OnBearingAdjustmentTimeout()
     {
         this._setRandomBearing();
+    }
+
+    public override string ToString()
+    {
+        return "Wander";
     }
 
    

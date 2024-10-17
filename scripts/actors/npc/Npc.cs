@@ -1,11 +1,21 @@
+using Incorgnito.scripts.components.state;
+
 namespace Incorgnito.scripts.actors.npc;
 
 using System.Collections.Generic;
 using Godot;
 using components.UtilityAI;
+using System.Collections.Generic;
 
 public partial class Npc : CharacterBody3D
 {
+
+	[Signal]
+	public delegate void UpdateNpcTraitStatsEventHandler(float hunger, float rest, float social);
+	
+	private ActionStateMachine _stateMachine;
+	private Dictionary<string, Vector3> BuildingLocations;
+	[Export] public CsgCombiner3D BuildingMap;
 	[Export]
 	public float Speed{
 		get;
@@ -16,23 +26,36 @@ public partial class Npc : CharacterBody3D
 
 	public override void _Ready()
 	{
-		var eatAction = new UtilityAction("Eat", 1.0f);
-		var restAction = new UtilityAction("Rest", 0.8f);
-		var socializeAction = new UtilityAction("Socialize", 0.6f);
+		_stateMachine = GetNode<ActionStateMachine>("ActionStateMachine");
+		GD.Print(_stateMachine.StateDict.Count.ToString());
+		var eatAction = new UtilityAction("Eat", 1.0f, _stateMachine.StateDict["GoToRestaurant"]);
+		var restAction = new UtilityAction("Rest", 0.8f, _stateMachine.StateDict["GoToHome"]);
+		var socializeAction = new UtilityAction("Socialize", 0.6f, _stateMachine.StateDict["GoToBar"]);
 
 		Traits = new List<UtilityTrait>
 		{
 			new UtilityTrait("Hunger", 80, eatAction),
-			new UtilityTrait("Tiredness", 30, restAction),
+			new UtilityTrait("Tiredness", 60, restAction),
 			new UtilityTrait("Loneliness", 50, socializeAction)
 		};
+
+		foreach (CsgBox3D building in BuildingMap.GetChildren())
+		{
+			//GD.Print(building.Name);
+			//BuildingLocations.Add(building.ToString(), building.GlobalTransform.Origin);
+		}
+		
 	}
 
 	public override void _Process(double delta)
 	{
 		PreformUtilityAiAction();
+		//add timers or mechanic to reduce values
 		Traits[0].Value -= 0.1f;
-		GD.Print($"{Traits[0].Name} == > {Traits[0].Value}");
+		EmitSignal(SignalName.UpdateNpcTraitStats, Traits[0].Value,Traits[1].Value,Traits[2].Value);
+		// GD.Print($"{Traits[0].Name} == > {Traits[0].Value}");
+		// GD.Print($"{Traits[1].Name} == > {Traits[1].Value}");
+		// GD.Print($"{Traits[2].Name} == > {Traits[2].Value}");
 }
 	
 	public void PreformUtilityAiAction()
@@ -54,46 +77,13 @@ public partial class Npc : CharacterBody3D
 
 		if (bestAction != null)
 		{
-			bestAction.Execute(Name);
+			//send state signal
+			_stateMachine.TransitionStateSignal.EmitSignal(nameof(StateSignals.TransitionState), _stateMachine.CurrentActionState, bestAction.State.ToString());
+			// bestAction.State;
 		}
 		else
 		{
 			GD.Print($"{Name} has no action to perform.");
 		}
-	}
-	
-	public override void _PhysicsProcess(double delta)
-	{
-		// Vector3 velocity = Velocity;
-		//
-		// // Add the gravity.
-		// if (!IsOnFloor())
-		// {
-		// 	velocity += GetGravity() * (float)delta;
-		// }
-		//
-		// // Handle Jump.
-		// if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
-		// {
-		// 	velocity.Y = JumpVelocity;
-		// }
-		//
-		// // Get the input direction and handle the movement/deceleration.
-		// // As good practice, you should replace UI actions with custom gameplay actions.
-		// Vector2 inputDir = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		// Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
-		// if (direction != Vector3.Zero)
-		// {
-		// 	velocity.X = direction.X * Speed;
-		// 	velocity.Z = direction.Z * Speed;
-		// }
-		// else
-		// {
-		// 	velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-		// 	velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
-		// }
-		//
-		// Velocity = velocity;
-		// MoveAndSlide();
 	}
 }
