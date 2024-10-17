@@ -6,7 +6,8 @@ public abstract partial class AbstractActionState : Node, IState
 {
     protected StateSignals StateSignals;
     [Export] protected Npc Npc;
-
+    [Export] protected NavigationAgent3D NavAgent;
+    
     public override void _Ready()
     {
         StateSignals = GetNode<StateSignals>("/root/StateSignals");

@@ -28,6 +28,6 @@ public partial class Building : CsgBox3D
 
 	public override string ToString()
 	{
-		return _typeName;
+		return _typeName.ToLower();
 	}
 }

@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3089ef88-b898-4c23-8aa0-76bdd709130d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/city_scene.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/city_scene.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/main.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/main.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/actors/npc/Npc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/actors/npc/Npc.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/components/State/AbstractActionState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/components/State/AbstractActionState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/components/State/ActionStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/components/State/ActionStateMachine.cs" afterDir="false" />
@@ -15,9 +15,7 @@
       <change beforePath="$PROJECT_DIR$/scripts/components/State/NPC/GoToHome.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/components/State/NPC/GoToHome.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/components/State/NPC/GoToRestaurant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/components/State/NPC/GoToRestaurant.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/components/State/NPC/GoToWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/components/State/NPC/GoToWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/components/State/NPC/Wander.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/components/State/NPC/Wander.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/components/State/StateSignals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/components/State/StateSignals.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/ui/NPCStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/ui/NPCTraitStatsUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/model/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/model/Building.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +105,7 @@
       <workItem from="1729054455693" duration="1548000" />
       <workItem from="1729056035247" duration="2000" />
       <workItem from="1729056065955" duration="616000" />
-      <workItem from="1729056723616" duration="22936000" />
+      <workItem from="1729056723616" duration="26835000" />
     </task>
     <servers />
   </component>

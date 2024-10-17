@@ -12,10 +12,9 @@ public partial class Npc : CharacterBody3D
 
 	[Signal]
 	public delegate void UpdateNpcTraitStatsEventHandler(float hunger, float rest, float social);
-
 	public string DebugMessage;
 	private ActionStateMachine _stateMachine;
-	private Dictionary<string, Vector3> BuildingLocations;
+	public Dictionary<string, Vector3> BuildingLocations;
 	[Export] public CsgCombiner3D BuildingMap;
 	[Export]
 	public float Speed{
@@ -27,6 +26,7 @@ public partial class Npc : CharacterBody3D
 
 	public override void _Ready()
 	{
+		BuildingLocations = new Dictionary<string, Vector3>();
 		_stateMachine = GetNode<ActionStateMachine>("ActionStateMachine");
 		GD.Print(_stateMachine.StateDict.Count.ToString());
 		var eatAction = new UtilityAction("Eat", 1.0f, _stateMachine.StateDict["GoToRestaurant"]);
@@ -40,11 +40,12 @@ public partial class Npc : CharacterBody3D
 			new UtilityTrait("Loneliness", 50, socializeAction)
 		};
 
-		foreach (CsgBox3D building in BuildingMap.GetChildren())
+		foreach (var building in BuildingMap.GetChildren())
 		{
-			//GD.Print(building.Name);
-			//BuildingLocations.Add(building.ToString(), building.GlobalTransform.Origin);
+			GD.Print(building.ToString());
+			BuildingLocations.Add(building.ToString(), ((CsgBox3D)building).GlobalPosition);
 		}
+		
 		
 	}
 
@@ -52,7 +53,7 @@ public partial class Npc : CharacterBody3D
 	{
 		PreformUtilityAiAction();
 		//add timers or mechanic to reduce values
-		Traits[0].Value -= 0.1f;
+		Traits[0].Value -= 0.00001f;
 		EmitSignal(SignalName.UpdateNpcTraitStats, Traits[0].Value,Traits[1].Value,Traits[2].Value);
 		// GD.Print($"{Traits[0].Name} == > {Traits[0].Value}");
 		// GD.Print($"{Traits[1].Name} == > {Traits[1].Value}");

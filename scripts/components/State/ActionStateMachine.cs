@@ -1,3 +1,5 @@
+using Incorgnito.scripts.actors.npc;
+
 namespace Incorgnito.scripts.components.state;
 
 using Godot;
@@ -8,6 +10,7 @@ using System.Collections.Generic;
 public partial class ActionStateMachine : Node
 {
 	[Export] private AbstractActionState _initialActionState;
+	
 	public readonly Dictionary <String, AbstractActionState> StateDict = new Dictionary<String, AbstractActionState>();
 	public AbstractActionState CurrentActionState;
 	public StateSignals StateSignals;
@@ -24,9 +27,7 @@ public partial class ActionStateMachine : Node
 					GD.Print((string)child.Name);
 					StateDict.Add(child.Name, (AbstractActionState)child);
 				}
-		
-					
-                
+				
 				StateSignals.TransitionState += OnStateTransition;
 				
 			}

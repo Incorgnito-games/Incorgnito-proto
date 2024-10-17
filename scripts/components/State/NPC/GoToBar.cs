@@ -16,7 +16,7 @@ public partial class GoToBar: AbstractActionState
     public override void UpdateProcess(double delta)
     {
         StateSignals.EmitSignal(nameof(StateSignals.StateDebugMessage),this,"Need to go to the bar");
-        GD.Print("Need to go to the Bar");
+        // GD.Print("Need to go to the Bar");
     }
 
     public override void UpdatePhysicsProcess(double delta)
