@@ -7,28 +7,7 @@
 
 [node name="World" parent="." instance=ExtResource("1_52xyi")]
 
-[node name="NPC" parent="World" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.093, -0.357501, 13.88)
-collision_layer = 2
-motion_mode = 1
-Speed = 5.0
-
-[node name="GoToBar" parent="World/NPC/ActionStateMachine" index="0" node_paths=PackedStringArray("NavAgent")]
-NavAgent = NodePath("../../NavigationAgent3D")
-
-[node name="Wander" parent="World/NPC/ActionStateMachine" index="2" node_paths=PackedStringArray("NavAgent")]
-NavAgent = NodePath("../../NavigationAgent3D")
-
-[node name="GoToRestaurant" parent="World/NPC/ActionStateMachine" index="3" node_paths=PackedStringArray("NavAgent")]
-NavAgent = NodePath("../../NavigationAgent3D")
-
-[node name="GoToHome" parent="World/NPC/ActionStateMachine" index="4" node_paths=PackedStringArray("NavAgent")]
-NavAgent = NodePath("../../NavigationAgent3D")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" node_paths=PackedStringArray("_npc") instance=ExtResource("2_jmat3")]
 _npc = NodePath("../../World/NPC")
-
-[editable path="World"]
-[editable path="World/NPC"]

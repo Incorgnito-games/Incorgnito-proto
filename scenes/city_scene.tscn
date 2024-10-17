@@ -43,7 +43,24 @@ shadow_enabled = true
 
 [node name="NPC" parent="." node_paths=PackedStringArray("BuildingMap") instance=ExtResource("1_2ue7f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.093, -1.5, 13.88)
+collision_layer = 2
+_hungerImportance = 0.5
+_socialImportance = 0.5
+_restImportance = 0.5
 BuildingMap = NodePath("../NavigationRegion3D/Buildings")
+Speed = 10.0
+
+[node name="GoToBar" parent="NPC/ActionStateMachine" index="0" node_paths=PackedStringArray("NavAgent")]
+NavAgent = NodePath("../../NavigationAgent3D")
+
+[node name="Wander" parent="NPC/ActionStateMachine" index="2" node_paths=PackedStringArray("NavAgent")]
+NavAgent = NodePath("../../NavigationAgent3D")
+
+[node name="GoToRestaurant" parent="NPC/ActionStateMachine" index="3" node_paths=PackedStringArray("NavAgent")]
+NavAgent = NodePath("../../NavigationAgent3D")
+
+[node name="GoToHome" parent="NPC/ActionStateMachine" index="4" node_paths=PackedStringArray("NavAgent")]
+NavAgent = NodePath("../../NavigationAgent3D")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_6h8at")
@@ -106,6 +123,7 @@ _typeName = "Work"
 [connection signal="body_entered" from="NavigationRegion3D/Buildings/Work/TraitCharge" to="NavigationRegion3D/Buildings/Home" method="OnWorkEntered"]
 [connection signal="body_exited" from="NavigationRegion3D/Buildings/Work/TraitCharge" to="NPC" method="OnWorkExited"]
 
+[editable path="NPC"]
 [editable path="NavigationRegion3D/Buildings/Bar"]
 [editable path="NavigationRegion3D/Buildings/Home"]
 [editable path="NavigationRegion3D/Buildings/Restaurant"]

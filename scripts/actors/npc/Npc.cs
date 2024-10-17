@@ -10,17 +10,17 @@ using System.Collections.Generic;
 public partial class Npc : CharacterBody3D
 
 {
-	[Export] private float _startingHunger = 80;
-	[Export] private float _startingSocial = 50;
-	[Export] private float _startingEnergy = 80;
+	[Export] private float _startingHunger = .8f;
+	[Export] private float _startingSocial = .5f;
+	[Export] private float _startingEnergy = .8f;
 	
-	[Export] private float _hungerImportance = 0.9f;
+	[Export] private float _hungerImportance = 0.7f;
 	[Export] private float _socialImportance = 0.6f;
 	[Export] private float _restImportance = 0.3f;
 	
-	[Export] private float _hungerDrain = 0.5f;
-	[Export] private float _socialDrain =0.6f;
-	[Export] private float _energyDrain=0.05f;
+	[Export] private float _hungerDrain = 0.005f;
+	[Export] private float _socialDrain =0.006f;
+	[Export] private float _energyDrain=0.0005f;
 	
 	private int _hungerMultiplier = 1;
 	private int _restMultiplier = 1;
@@ -70,13 +70,12 @@ public partial class Npc : CharacterBody3D
 		PreformUtilityAiAction();
 		//add timers or mechanic to reduce values--> naive for now
 		GD.Print(Velocity);
-		if (Velocity == Vector3.Zero)
-		{
-		Traits[0].Value = (Traits[0].Value > 0 && Traits[0].Value < 100) ? Traits[0].Value -= _hungerDrain* (float)delta * _hungerMultiplier: Traits[0].Value ; //hunger
+	
+		Traits[0].Value = (Traits[0].Value > 0 && Traits[0].Value < 1) ? Traits[0].Value -= _hungerDrain* (float)delta * _hungerMultiplier: Traits[0].Value ; //hunger
 			
-		Traits[1].Value = (Traits[1].Value > 0 && Traits[1].Value < 100) ? Traits[1].Value -= _energyDrain * (float)delta *_restMultiplier: Traits[1].Value ; //rest
-		Traits[2].Value = (Traits[2].Value > 0 && Traits[2].Value < 100) ? Traits[2].Value -= _socialDrain * (float)delta *_socialMultiplier: Traits[2].Value ; //social
-		}	
+		Traits[1].Value = (Traits[1].Value > 0 && Traits[1].Value < 1) ? Traits[1].Value -= _energyDrain * (float)delta *_restMultiplier: Traits[1].Value ; //rest
+		Traits[2].Value = (Traits[2].Value > 0 && Traits[2].Value < 1) ? Traits[2].Value -= _socialDrain * (float)delta *_socialMultiplier: Traits[2].Value ; //social
+		
 		EmitSignal(SignalName.UpdateNpcTraitStats, Traits[0].Value,Traits[1].Value,Traits[2].Value);
 		// GD.Print($"{Traits[0].Name} == > {Traits[0].Value}");
 		// GD.Print($"{Traits[1].Name} == > {Traits[1].Value}");
@@ -92,10 +91,10 @@ public partial class Npc : CharacterBody3D
 		foreach (var trait in Traits)
 		{
 			float utility = trait.EvaluateUtility();
-			if (trait.Value >= 90)
-			{
-				continue;
-			}
+			// if (trait.Value >= 0.9)
+			// {
+			// 	continue;
+			// }
 			if (utility > highestUtility)
 			{
 				highestUtility = utility;
@@ -150,12 +149,12 @@ public partial class Npc : CharacterBody3D
 		_restMultiplier = 1;
 	}
 
-	public void OnWorkEntered()
+	public void OnWorkEntered(Node3D body)
 	{
 		GD.Print("Ahh fuck..");
 		_restMultiplier = -2;
 	}
-	public void OnWorkExited()
+	public void OnWorkExited(Node3D body)
 	{
 	GD.Print("Freedom!");
 		_restMultiplier = 1;
