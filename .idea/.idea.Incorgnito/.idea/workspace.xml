@@ -7,8 +7,8 @@
     <list default="true" id="3089ef88-b898-4c23-8aa0-76bdd709130d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/city_scene.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/city_scene.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/main.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/main.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/actors/npc/Npc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/actors/npc/Npc.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/components/UtilityAI/UtilityTrait.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/components/UtilityAI/UtilityTrait.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +98,7 @@
       <workItem from="1729054455693" duration="1548000" />
       <workItem from="1729056035247" duration="2000" />
       <workItem from="1729056065955" duration="616000" />
-      <workItem from="1729056723616" duration="36953000" />
+      <workItem from="1729056723616" duration="42726000" />
     </task>
     <servers />
   </component>

@@ -44,9 +44,12 @@ shadow_enabled = true
 [node name="NPC" parent="." node_paths=PackedStringArray("BuildingMap") instance=ExtResource("1_2ue7f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.093, -1.5, 13.88)
 collision_layer = 2
-_hungerImportance = 0.5
-_socialImportance = 0.5
-_restImportance = 0.5
+_startingHunger = 0.2
+_startingSocial = 0.1
+_startingEnergy = 0.1
+_hungerImportance = 1.0
+_socialImportance = 1.0
+_restImportance = 1.0
 BuildingMap = NodePath("../NavigationRegion3D/Buildings")
 Speed = 10.0
 

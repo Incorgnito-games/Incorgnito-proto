@@ -1,3 +1,4 @@
+using System;
 using Incorgnito.scripts.components.state;
 
 namespace Incorgnito.scripts.actors.npc;
@@ -10,6 +11,10 @@ using System.Collections.Generic;
 public partial class Npc : CharacterBody3D
 
 {
+	//actor traits
+	public List<UtilityTrait> Traits;
+	private Timer _coolDownTimer = new Timer();
+	
 	[Export] private float _startingHunger = .8f;
 	[Export] private float _startingSocial = .5f;
 	[Export] private float _startingEnergy = .8f;
@@ -25,26 +30,38 @@ public partial class Npc : CharacterBody3D
 	private int _hungerMultiplier = 1;
 	private int _restMultiplier = 1;
 	private int _socialMultiplier = 1;
+	
+	//character 
+	[Export] public float Speed{ get; set; } = 0.5f;
+	
+	//movement
 	private Vector3 velocity;
+	
+	//signals
 	[Signal]
 	public delegate void UpdateNpcTraitStatsEventHandler(float hunger, float rest, float social);
+	
+	//debug
 	public string DebugMessage;
-	private ActionStateMachine _stateMachine;
-	public Dictionary<string, Vector3> BuildingLocations;
+	
+	//enviromental knowledge
 	[Export] public Node BuildingMap;
-	[Export]
-	public float Speed{
-		get;
-		set;
-	} = 0.5f;
-	public const float JumpVelocity = 4.5f;
-	public List<UtilityTrait> Traits;
+	public Dictionary<string, Vector3> BuildingLocations;
+	
+	//state
+	private ActionStateMachine _stateMachine;
+	private bool _onCoolDown = false;
 
 	public override void _Ready()
 	{
 		BuildingLocations = new Dictionary<string, Vector3>();
 		_stateMachine = GetNode<ActionStateMachine>("ActionStateMachine");
-		GD.Print(_stateMachine.StateDict.Count.ToString());
+			
+		_coolDownTimer.SetAutostart(false);
+		_coolDownTimer.OneShot = true;
+		_coolDownTimer.WaitTime = 3;
+		_coolDownTimer.Timeout += OnCoolDownTimerTimeoutSignal;
+		
 		var eatAction = new UtilityAction("Eat", _hungerImportance, _stateMachine.StateDict["GoToRestaurant"]);
 		var restAction = new UtilityAction("Rest", _restImportance, _stateMachine.StateDict["GoToHome"]);
 		var socializeAction = new UtilityAction("Socialize", _socialImportance, _stateMachine.StateDict["GoToBar"]);
@@ -70,16 +87,15 @@ public partial class Npc : CharacterBody3D
 		PreformUtilityAiAction();
 		//add timers or mechanic to reduce values--> naive for now
 		GD.Print(Velocity);
-	
-		Traits[0].Value = (Traits[0].Value > 0 && Traits[0].Value < 1) ? Traits[0].Value -= _hungerDrain* (float)delta * _hungerMultiplier: Traits[0].Value ; //hunger
-			
-		Traits[1].Value = (Traits[1].Value > 0 && Traits[1].Value < 1) ? Traits[1].Value -= _energyDrain * (float)delta *_restMultiplier: Traits[1].Value ; //rest
-		Traits[2].Value = (Traits[2].Value > 0 && Traits[2].Value < 1) ? Traits[2].Value -= _socialDrain * (float)delta *_socialMultiplier: Traits[2].Value ; //social
+		
+		if (!_onCoolDown)
+		{
+			Traits[0].Value = (Traits[0].Value > 0 && Traits[0].Value < 1) ? Traits[0].Value += _hungerDrain* (float)delta * _hungerMultiplier: Traits[0].Value ; //hunger
+			Traits[1].Value = (Traits[1].Value > 0 && Traits[1].Value < 1) ? Traits[1].Value += _energyDrain * (float)delta *_restMultiplier: Traits[1].Value ; //rest
+			Traits[2].Value = (Traits[2].Value > 0 && Traits[2].Value < 1) ? Traits[2].Value += _socialDrain * (float)delta *_socialMultiplier: Traits[2].Value ; //social
+		}
 		
 		EmitSignal(SignalName.UpdateNpcTraitStats, Traits[0].Value,Traits[1].Value,Traits[2].Value);
-		// GD.Print($"{Traits[0].Name} == > {Traits[0].Value}");
-		// GD.Print($"{Traits[1].Name} == > {Traits[1].Value}");
-		// GD.Print($"{Traits[2].Name} == > {Traits[2].Value}");
 }
 	
 	public void PreformUtilityAiAction()
@@ -90,23 +106,19 @@ public partial class Npc : CharacterBody3D
 		
 		foreach (var trait in Traits)
 		{
+			//should this be normailized
 			float utility = trait.EvaluateUtility();
-			// if (trait.Value >= 0.9)
-			// {
-			// 	continue;
-			// }
+			
 			if (utility > highestUtility)
-			{
-				highestUtility = utility;
+			{ 
+				highestUtility = utility; 
 				bestAction = trait.AssociatedAction;
 			}
 		}
 
 		if (bestAction != null)
 		{
-			//send state signal
 			_stateMachine.StateSignals.EmitSignal(nameof(StateSignals.TransitionState), _stateMachine.CurrentActionState, bestAction.State.ToString());
-			// bestAction.State;
 		}
 		else
 		{
@@ -156,7 +168,12 @@ public partial class Npc : CharacterBody3D
 	}
 	public void OnWorkExited(Node3D body)
 	{
-	GD.Print("Freedom!");
+		GD.Print("Freedom!");
 		_restMultiplier = 1;
+	}
+	public void OnCoolDownTimerTimeoutSignal()
+	{
+		_onCoolDown = false;
+
 	}
 }

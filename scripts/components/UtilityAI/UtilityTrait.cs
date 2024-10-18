@@ -18,6 +18,7 @@ public class UtilityTrait
 
     public float EvaluateUtility()
     {
-        return (100 - Value) * AssociatedAction.Importance;
+        //should i normalize this??
+        return Value * AssociatedAction.Importance;
     }
 }
