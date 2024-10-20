@@ -1,6 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdph25s15icec"]
-
-[ext_resource type="Script" path="res://scripts/model/Building.cs" id="1_1uaie"]
+[gd_scene load_steps=4 format=3 uid="uid://bdph25s15icec"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4cq2"]
 transparency = 1
@@ -13,7 +11,6 @@ size = Vector3(15, 5, 15)
 radius = 11.0
 
 [node name="Building" type="StaticBody3D"]
-script = ExtResource("1_1uaie")
 
 [node name="BuildingBox" type="CSGBox3D" parent="."]
 size = Vector3(15, 5, 15)

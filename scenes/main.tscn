@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dklljnk4urkm1"]
 
 [ext_resource type="PackedScene" uid="uid://cotw4n4ywong5" path="res://scenes/city_scene.tscn" id="1_52xyi"]
-[ext_resource type="PackedScene" uid="uid://bawhqhem6xjdi" path="res://scenes/ui/trait_display.tscn" id="2_jmat3"]
+[ext_resource type="PackedScene" uid="uid://diuviadbsle87" path="res://scenes/ui/needs_display.tscn" id="2_1nkvd"]
 
 [node name="Main" type="Node3D"]
 
@@ -9,5 +9,11 @@
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" parent="CanvasLayer" node_paths=PackedStringArray("_npc") instance=ExtResource("2_jmat3")]
-_npc = NodePath("../../World/NPC")
+[node name="NPCNeedStatsUI" parent="CanvasLayer" instance=ExtResource("2_1nkvd")]
+
+[editable path="World"]
+[editable path="World/NPC"]
+[editable path="World/NavigationRegion3D/Buildings/Bar"]
+[editable path="World/NavigationRegion3D/Buildings/Home"]
+[editable path="World/NavigationRegion3D/Buildings/Restaurant"]
+[editable path="World/NavigationRegion3D/Buildings/Work"]

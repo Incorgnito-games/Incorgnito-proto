@@ -1,18 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cko4ymg5gdbnl"]
-
-[ext_resource type="Script" path="res://scripts/actors/npc/Npc.cs" id="1_24ynq"]
-[ext_resource type="Script" path="res://scripts/components/State/ActionStateMachine.cs" id="2_6o2yt"]
-[ext_resource type="Script" path="res://scripts/components/State/NPC/Wander.cs" id="3_nr1gm"]
-[ext_resource type="Script" path="res://scripts/components/State/NPC/GoToBar.cs" id="3_nyn6g"]
-[ext_resource type="Script" path="res://scripts/components/State/NPC/GoToRestaurant.cs" id="4_mbggj"]
-[ext_resource type="Script" path="res://scripts/components/State/NPC/GoToHome.cs" id="6_4wm2k"]
+[gd_scene load_steps=3 format=3 uid="uid://cko4ymg5gdbnl"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8t4yn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d0naj"]
 
 [node name="NPC" type="CharacterBody3D"]
-script = ExtResource("1_24ynq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_8t4yn")
@@ -21,24 +13,15 @@ mesh = SubResource("CapsuleMesh_8t4yn")
 shape = SubResource("CapsuleShape3D_d0naj")
 
 [node name="ActionStateMachine" type="Node" parent="."]
-script = ExtResource("2_6o2yt")
 
-[node name="GoToBar" type="Node" parent="ActionStateMachine" node_paths=PackedStringArray("Npc")]
-script = ExtResource("3_nyn6g")
-Npc = NodePath("../..")
+[node name="GoToBar" type="Node" parent="ActionStateMachine"]
 
 [node name="Idle" type="Node" parent="ActionStateMachine"]
 
-[node name="Wander" type="Node" parent="ActionStateMachine" node_paths=PackedStringArray("Npc")]
-script = ExtResource("3_nr1gm")
-Npc = NodePath("../..")
+[node name="Wander" type="Node" parent="ActionStateMachine"]
 
-[node name="GoToRestaurant" type="Node" parent="ActionStateMachine" node_paths=PackedStringArray("Npc")]
-script = ExtResource("4_mbggj")
-Npc = NodePath("../..")
+[node name="GoToRestaurant" type="Node" parent="ActionStateMachine"]
 
-[node name="GoToHome" type="Node" parent="ActionStateMachine" node_paths=PackedStringArray("Npc")]
-script = ExtResource("6_4wm2k")
-Npc = NodePath("../..")
+[node name="GoToHome" type="Node" parent="ActionStateMachine"]
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
