@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cko4ymg5gdbnl"]
+[gd_scene load_steps=4 format=3 uid="uid://cko4ymg5gdbnl"]
+
+[ext_resource type="Script" path="res://scripts/actors/SimpleAi.cs" id="2_sa5e8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8t4yn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d0naj"]
 
 [node name="NPC" type="CharacterBody3D"]
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_8t4yn")
@@ -25,3 +28,12 @@ shape = SubResource("CapsuleShape3D_d0naj")
 [node name="GoToHome" type="Node" parent="ActionStateMachine"]
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+
+[node name="SimpleAi" type="Node" parent="." node_paths=PackedStringArray("Npc", "NavAgent")]
+script = ExtResource("2_sa5e8")
+Speed = 50.0
+Npc = NodePath("..")
+NavAgent = NodePath("../NavigationAgent3D")
+
+[connection signal="velocity_computed" from="NavigationAgent3D" to="SimpleAi" method="OnNavigationAgent3dVelocityComputed"]

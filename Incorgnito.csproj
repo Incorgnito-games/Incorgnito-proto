@@ -11,10 +11,4 @@
   <ItemGroup>
     <EmbeddedResource Remove="scripts\components\actors\**" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="scripts\actors\npc\" />
-    <Folder Include="scripts\components\State\NPC\" />
-    <Folder Include="scripts\model\" />
-    <Folder Include="scripts\ui\" />
-  </ItemGroup>
 </Project>

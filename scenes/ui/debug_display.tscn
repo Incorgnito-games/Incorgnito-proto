@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://diuviadbsle87"]
+[gd_scene load_steps=3 format=3 uid="uid://doykdnuj1ivj8"]
+
+[ext_resource type="Script" path="res://scripts/ui/DebugDisplayUI.cs" id="1_2otib"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jipr2"]
 font_color = Color(1, 0.215686, 0.145098, 1)
 outline_size = 6
 outline_color = Color(0.0470588, 0.0509804, 0.0431373, 1)
 
-[node name="NPCNeedStatsUI" type="Control"]
+[node name="DebugDisplayUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.24, 0.333333)
+script = ExtResource("1_2otib")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 0

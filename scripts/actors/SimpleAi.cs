@@ -14,7 +14,7 @@ public partial class SimpleAi : Node
 	[Export] protected float InteractionDelay = 3f;
 
 	private CustomSignals _debugSignal;
-	
+	private Vector3 _newVelocity;
 	private bool _npcFreeOnTimer = true;
 	private bool _isMoving = false;
 	private SmartObject _selectedObject;
@@ -27,6 +27,7 @@ public partial class SimpleAi : Node
 
 	public override void _Ready()
 	{
+		_newVelocity = new Vector3();
 		_debugSignal = GetNode<CustomSignals>("/root/CustomSignals");
 		_currentInteraction = null;
 		_selectedObject = null;
@@ -55,7 +56,7 @@ public partial class SimpleAi : Node
 					_isPreforming = true;
 					_debugSignal.EmitSignal(nameof(_debugSignal.DebugMessage),
 						new string($"preforming: {_currentInteraction.DisplayName} -- {_currentInteraction.InteractionDuraction} seconds"));
-					 GD.Print($"preforming: {_currentInteraction.DisplayName} -- {_currentInteraction.InteractionDuraction} seconds");
+					// GD.Print($"preforming: {_currentInteraction.DisplayName} -- {_currentInteraction.InteractionDuraction} seconds");
 					_currentInteraction.Perform(this, OnInteractionFinished);
 				}
 			}
@@ -94,42 +95,37 @@ public partial class SimpleAi : Node
 			GD.RandRange(0, SmartObjectManager.Instance.RegisteredObjects.Count - 1)];
 		NavAgent.TargetDesiredDistance = _selectedObject.TargetDistanceTolerance;
 		NavAgent.SetTargetPosition(_selectedObject.ObjectBody.GlobalPosition);
-		GD.Print(_selectedObject.Interactions.Count);
-		var selectedInteraction = _selectedObject.Interactions[0];
+		// GD.Print(_selectedObject.Interactions.Count);
+		var selectedInteraction = _selectedObject.Interactions[GD.RandRange(0, _selectedObject.Interactions.Count-1)];
 
 		if (selectedInteraction.CanPerform())
 		{
-		//	GD.Print("interaction preformable");
 			_currentInteraction = selectedInteraction;
 			_currentInteraction.LockInteraction();
 		}
-		else
-		{
-		//	GD.Print("interaction not preformable");
-		}
+		
 	}
 
 	public void MoveToTarget()
 	{
 		//move npc
-		var dir = new Vector3();
-		var velocity = Npc.Velocity;
-		//GD.Print($"new target location: {NavAgent.TargetPosition}");
-		dir = (NavAgent.GetNextPathPosition() - Npc.GlobalPosition).Normalized();
+		_newVelocity =(NavAgent.GetNextPathPosition() - Npc.GlobalPosition).Normalized();
+		// NavAgent.SetVelocity(_newVelocity);
 	
-		Npc.Velocity = dir * Speed;
+		
+		
+		Npc.Velocity = _newVelocity * Speed;
 		if (!Npc.MoveAndSlide())
 		{
-			GD.PrintErr($"Could not reach {_selectedObject.DisplayName}");
-			//_currentInteraction = null;
+			GD.PrintErr($"Hit something on the way to {_selectedObject.DisplayName}");
 		}
-		else
-		{
-			//GD.Print($"{(Npc.GlobalPosition - _selectedObject.ObjectBody.GlobalPosition).Length()}");
-			
-			_debugSignal.EmitSignal(nameof(_debugSignal.DebugMessage), 
+		_debugSignal.EmitSignal(nameof(_debugSignal.DebugMessage), 
 				new string($"going to {_currentInteraction.DisplayName} at {_selectedObject.DisplayName}"));
-			// GD.Print($"going to {_currentInteraction.DisplayName} at {_selectedObject.DisplayName}");
-		}
+	}
+
+	public void OnNavigationAgent3dVelocityComputed(Vector3 safe_velocity)
+	{
+		
+		
 	}
 }

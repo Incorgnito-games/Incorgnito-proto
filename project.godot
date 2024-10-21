@@ -15,6 +15,11 @@ run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SmartObjectManager="*res://scripts/Systems/SmartObjectManager.cs"
+CustomSignals="*res://scripts/CustomSignals.cs"
+
 [dotnet]
 
 project/assembly_name="Incorgnito"
