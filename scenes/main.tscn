@@ -9,4 +9,4 @@
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="DebugDisplayUI" parent="CanvasLayer" instance=ExtResource("2_j60tj")]
+[node name="DebugDisplayUi" parent="CanvasLayer" instance=ExtResource("2_j60tj")]

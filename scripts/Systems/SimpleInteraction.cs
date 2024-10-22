@@ -1,3 +1,4 @@
+using Incorgnito.scripts.actors.ai;
 using Microsoft.VisualBasic;
 
 namespace Incorgnito.scripts.Systems;
@@ -9,6 +10,7 @@ public partial class SimpleInteraction: BaseInteraction
 {
     protected class PerformerData
     {
+        public BaseAi PerformingAi;
         public float ElapsedTime;
         public Action<BaseInteraction> Oncomplete;
     }
@@ -32,7 +34,7 @@ public partial class SimpleInteraction: BaseInteraction
     }
 
     
-    public override void Perform(Node performer,Action<BaseInteraction>onCompleted)
+    public override void Perform(BaseAi performer,Action<BaseInteraction>onCompleted)
     {
         if (NumCurrentActors <= 0)
         {
@@ -42,10 +44,14 @@ public partial class SimpleInteraction: BaseInteraction
 
         if (InteractionType == EInteractionType.Instantaneous)
         {
+            if (StatChanges.Count > 0)
+            {
+                ApplyStatChanges(performer, 1f);
+            }
             onCompleted?.Invoke(this);
         }else if (InteractionType == EInteractionType.OverTime)
         {
-            CurrentPerformers.Add(new PerformerData(){ElapsedTime = 0, Oncomplete = onCompleted});
+            CurrentPerformers.Add(new PerformerData(){PerformingAi = performer, ElapsedTime = 0, Oncomplete = onCompleted});
         }
     }
 
@@ -66,8 +72,13 @@ public partial class SimpleInteraction: BaseInteraction
         {
             PerformerData performer = CurrentPerformers[index];
 
-            performer.ElapsedTime += (float)delta;
-            
+            float previousElapsedTime = performer.ElapsedTime;
+            performer.ElapsedTime = Mathf.Min(performer.ElapsedTime + (float)delta, _interactionDuraction);
+           
+            if (StatChanges.Count > 0)
+            {
+                ApplyStatChanges(performer.PerformingAi, (performer.ElapsedTime - previousElapsedTime)/_interactionDuraction);
+            }
             //interaction complete
             if (performer.ElapsedTime >= _interactionDuraction)
             {

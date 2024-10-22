@@ -47,78 +47,6 @@ shadow_enabled = true
 [node name="NPC" parent="TownFolk" instance=ExtResource("1_2ue7f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.093, -1.5, 13.88)
 
-[node name="NPC2" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.3759, -1.5, -21.5777)
-
-[node name="NPC3" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.3688, -1.5, -24.7567)
-
-[node name="NPC4" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2324, -1.5, -41.8742)
-
-[node name="NPC5" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.64472, -1.5, -21.5777)
-
-[node name="NPC6" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7911, -1.5, -20.8441)
-
-[node name="NPC7" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4262, -1.5, -7.15008)
-
-[node name="NPC8" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.73216, -1.5, -45.7868)
-
-[node name="NPC9" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.6352, -1.5, -40.6515)
-
-[node name="NPC10" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3676, -1.5, -32.3373)
-
-[node name="NPC11" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3251, -1.5, -5.1938)
-
-[node name="NPC12" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.5507, -1.5, 13.6355)
-
-[node name="NPC13" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6777, -1.5, 9.96743)
-
-[node name="NPC14" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6488, -1.5, 14.6136)
-
-[node name="NPC15" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.4414, -1.5, -47.254)
-
-[node name="NPC16" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7363, -1.5, -36.7389)
-
-[node name="NPC17" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.3759, -1.5, -5.68287)
-
-[node name="NPC18" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79771, -1.5, -26.2239)
-
-[node name="NPC19" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.8579, -1.5, -34.2936)
-
-[node name="NPC20" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.0876, -1.5, -32.3373)
-
-[node name="NPC21" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.4633, -1.5, 4.83217)
-
-[node name="NPC22" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9045, -1.5, 0.430523)
-
-[node name="NPC23" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3676, -1.5, -10.5736)
-
-[node name="NPC24" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0806, -1.5, 3.12042)
-
-[node name="NPC25" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9631, -1.5, 35.8882)
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_6h8at")
 
@@ -172,12 +100,14 @@ MaxSimultaneousActors = 5
 _DisplayName = "Socialize"
 _interactionType = 1
 _interactionDuraction = 5.0
+StatChangesVectors = Array[Vector2]([Vector2(2, 0.5)])
 
 [node name="SimpleInteraction2" type="Node" parent="NavigationRegion3D/Buildings/Bar/SmartObject" index="1" node_paths=PackedStringArray("ObjectBody")]
 script = ExtResource("3_yxjd2")
 MaxSimultaneousActors = 5
 _DisplayName = "Drink"
 ObjectBody = NodePath("../..")
+StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(2, 0.1)])
 
 [node name="Home" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0829, 0, -41.2365)
@@ -189,11 +119,13 @@ DisplayName = "Home"
 _DisplayName = "Sleep"
 _interactionType = 1
 _interactionDuraction = 3.0
+StatChangesVectors = Array[Vector2]([Vector2(1, 0.75)])
 
 [node name="SimpleInteraction2" type="Node" parent="NavigationRegion3D/Buildings/Home/SmartObject" index="1" node_paths=PackedStringArray("ObjectBody")]
 script = ExtResource("3_yxjd2")
 _DisplayName = "Drink"
 ObjectBody = NodePath("../..")
+StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(2, -0.1)])
 
 [node name="Restaurant" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.8802, 0, -15.5576)
@@ -205,11 +137,13 @@ DisplayName = "Restaurant"
 _DisplayName = "Eat"
 _interactionType = 1
 _interactionDuraction = 4.0
+StatChangesVectors = Array[Vector2]([Vector2(0, 0.5), Vector2(1, -0.2), Vector2(2, 0.15)])
 
 [node name="SimpleInteraction2" type="Node" parent="NavigationRegion3D/Buildings/Restaurant/SmartObject" index="1" node_paths=PackedStringArray("ObjectBody")]
 script = ExtResource("3_yxjd2")
 _DisplayName = "drink"
 ObjectBody = NodePath("../..")
+StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(1, -0.05), Vector2(2, 0.1)])
 
 [node name="Work" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.0451, 0, -36.9326)
@@ -221,32 +155,9 @@ DisplayName = "Work"
 _DisplayName = "MakeMoney"
 _interactionType = 1
 _interactionDuraction = 2.0
+StatChangesVectors = Array[Vector2]([Vector2(1, -0.5), Vector2(2, 0.2)])
 
 [editable path="TownFolk/NPC"]
-[editable path="TownFolk/NPC2"]
-[editable path="TownFolk/NPC3"]
-[editable path="TownFolk/NPC4"]
-[editable path="TownFolk/NPC5"]
-[editable path="TownFolk/NPC6"]
-[editable path="TownFolk/NPC7"]
-[editable path="TownFolk/NPC8"]
-[editable path="TownFolk/NPC9"]
-[editable path="TownFolk/NPC10"]
-[editable path="TownFolk/NPC11"]
-[editable path="TownFolk/NPC12"]
-[editable path="TownFolk/NPC13"]
-[editable path="TownFolk/NPC14"]
-[editable path="TownFolk/NPC15"]
-[editable path="TownFolk/NPC16"]
-[editable path="TownFolk/NPC17"]
-[editable path="TownFolk/NPC18"]
-[editable path="TownFolk/NPC19"]
-[editable path="TownFolk/NPC20"]
-[editable path="TownFolk/NPC21"]
-[editable path="TownFolk/NPC22"]
-[editable path="TownFolk/NPC23"]
-[editable path="TownFolk/NPC24"]
-[editable path="TownFolk/NPC25"]
 [editable path="NavigationRegion3D/Buildings/Bar"]
 [editable path="NavigationRegion3D/Buildings/Home"]
 [editable path="NavigationRegion3D/Buildings/Restaurant"]

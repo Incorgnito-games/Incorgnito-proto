@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cko4ymg5gdbnl"]
 
-[ext_resource type="Script" path="res://scripts/actors/SimpleAi.cs" id="2_sa5e8"]
+[ext_resource type="Script" path="res://scripts/actors/ai/SimpleAi.cs" id="1_3ecdg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8t4yn"]
 
@@ -15,25 +15,11 @@ mesh = SubResource("CapsuleMesh_8t4yn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_d0naj")
 
-[node name="ActionStateMachine" type="Node" parent="."]
-
-[node name="GoToBar" type="Node" parent="ActionStateMachine"]
-
-[node name="Idle" type="Node" parent="ActionStateMachine"]
-
-[node name="Wander" type="Node" parent="ActionStateMachine"]
-
-[node name="GoToRestaurant" type="Node" parent="ActionStateMachine"]
-
-[node name="GoToHome" type="Node" parent="ActionStateMachine"]
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true
 
-[node name="SimpleAi" type="Node" parent="." node_paths=PackedStringArray("Npc", "NavAgent")]
-script = ExtResource("2_sa5e8")
-Speed = 50.0
+[node name="Ai" type="Node" parent="." node_paths=PackedStringArray("Npc", "NavAgent")]
+script = ExtResource("1_3ecdg")
+Speed = 100.0
 Npc = NodePath("..")
 NavAgent = NodePath("../NavigationAgent3D")
-
-[connection signal="velocity_computed" from="NavigationAgent3D" to="SimpleAi" method="OnNavigationAgent3dVelocityComputed"]
