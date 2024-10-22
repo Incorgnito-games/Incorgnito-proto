@@ -6,6 +6,7 @@ using Systems;
 public partial class SimpleAi : BaseAi
 {
 
+	//randomly choose object and interaction
 	protected override void PickInteraction()
 	{
 

@@ -58,6 +58,17 @@ text = "Social: "
 layout_mode = 2
 text = "_"
 
+[node name="MoneyCont" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="BoxContainer/MoneyCont"]
+layout_mode = 2
+text = "Money: "
+
+[node name="MoneyLabelValue" type="Label" parent="BoxContainer/MoneyCont"]
+layout_mode = 2
+text = "_"
+
 [node name="DebugMessage" type="Label" parent="."]
 layout_mode = 0
 offset_left = 425.0

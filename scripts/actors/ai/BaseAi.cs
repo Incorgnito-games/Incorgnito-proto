@@ -9,7 +9,8 @@ public enum EStat
 {
 	Hunger = 0,
 	Energy = 1,
-	Social = 2
+	Social = 2,
+	Money = 3
 }
 public abstract partial class BaseAi : Node
 {
@@ -17,15 +18,18 @@ public abstract partial class BaseAi : Node
 	[Export] private float _initialHunger = 0.5f;
 	[Export] private float _initialEnergy = 0.5f;
 	[Export] private float _initialSocial = 0.5f;
+	[Export] private float _initialMoney = 1f;
 
 	[ExportGroup("Need Decay Rates")]
 	[Export] private float _baseHungerDecay = 0.005f;
 	[Export] private float _baseEnergyDecay = 0.005f;
 	[Export] private float _baseSocialDecay = 0.005f;
+	[Export] private float _baseMoneyDecay = 0f;
     
 	public float CurrentHunger { get; protected set; }
 	public float CurrentEnergy { get; protected set; }
 	public float CurrentSocial { get; protected set; }
+	public float CurrentMoney { get; protected set; }
 	
 	[ExportGroup("Character Setup")]	
 	[Export] protected float Speed = 5.0f;
@@ -54,9 +58,11 @@ public abstract partial class BaseAi : Node
 		CurrentHunger = _initialHunger;
 		CurrentEnergy = _initialEnergy;
 		CurrentSocial = _initialSocial;
+		CurrentMoney = _initialMoney;
 		NeedsDictionary.Add("hunger", CurrentHunger);
 		NeedsDictionary.Add("energy", CurrentEnergy);
 		NeedsDictionary.Add("social", CurrentSocial);
+		NeedsDictionary.Add("money", CurrentMoney);
 
 		_newVelocity = new Vector3();
 		_debugSignal = GetNode<CustomSignals>("/root/CustomSignals");
@@ -99,7 +105,6 @@ public abstract partial class BaseAi : Node
 			if (_timeUntilNextInteraction > 0)
 				return;
 			
-			
 			_timeUntilNextInteraction = _interactionDelay; 
 			PickInteraction();
 		}
@@ -111,10 +116,12 @@ public abstract partial class BaseAi : Node
 		CurrentHunger = Mathf.Clamp(CurrentHunger - _baseHungerDecay * (float)delta, 0,1);
 		CurrentEnergy = Mathf.Clamp(CurrentEnergy - _baseEnergyDecay * (float)delta, 0, 1);
 		CurrentSocial = Mathf.Clamp(CurrentSocial - _baseSocialDecay * (float)delta, 0, 1);
+		CurrentMoney = Mathf.Clamp(CurrentMoney - _baseMoneyDecay * (float)delta, 0, 1);
         
 		NeedsDictionary["hunger"] = CurrentHunger;
 		NeedsDictionary["energy"] = CurrentEnergy;
 		NeedsDictionary["social"] = CurrentSocial;
+		NeedsDictionary["money"] = CurrentMoney;
 		
 		 _debugSignal.EmitSignal(nameof(_debugSignal.DebugStatsDisplay),NeedsDictionary);
 	}
@@ -144,11 +151,14 @@ public abstract partial class BaseAi : Node
 				break;
 			case EStat.Social: CurrentSocial += amount;
 				break;
+			case EStat.Money: CurrentMoney += amount;
+				break;
 			default:
 				GD.PrintErr("unknown stat fall through");
 				break;
 		}
 	}
+	
 	
 
 	private void MoveToTarget()

@@ -100,14 +100,14 @@ MaxSimultaneousActors = 5
 _DisplayName = "Socialize"
 _interactionType = 1
 _interactionDuraction = 5.0
-StatChangesVectors = Array[Vector2]([Vector2(2, 0.5)])
+StatChangesVectors = Array[Vector2]([Vector2(2, 0.5), Vector2(3, -0.3)])
 
 [node name="SimpleInteraction2" type="Node" parent="NavigationRegion3D/Buildings/Bar/SmartObject" index="1" node_paths=PackedStringArray("ObjectBody")]
 script = ExtResource("3_yxjd2")
 MaxSimultaneousActors = 5
 _DisplayName = "Drink"
 ObjectBody = NodePath("../..")
-StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(2, 0.1)])
+StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(2, 0.1), Vector2(3, -0.1)])
 
 [node name="Home" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0829, 0, -41.2365)
@@ -125,7 +125,7 @@ StatChangesVectors = Array[Vector2]([Vector2(1, 0.75)])
 script = ExtResource("3_yxjd2")
 _DisplayName = "Drink"
 ObjectBody = NodePath("../..")
-StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(2, -0.1)])
+StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(2, -0.1), Vector2(3, -0.1)])
 
 [node name="Restaurant" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.8802, 0, -15.5576)
@@ -137,13 +137,13 @@ DisplayName = "Restaurant"
 _DisplayName = "Eat"
 _interactionType = 1
 _interactionDuraction = 4.0
-StatChangesVectors = Array[Vector2]([Vector2(0, 0.5), Vector2(1, -0.2), Vector2(2, 0.15)])
+StatChangesVectors = Array[Vector2]([Vector2(0, 0.5), Vector2(1, -0.2), Vector2(2, 0.15), Vector2(3, -0.4)])
 
 [node name="SimpleInteraction2" type="Node" parent="NavigationRegion3D/Buildings/Restaurant/SmartObject" index="1" node_paths=PackedStringArray("ObjectBody")]
 script = ExtResource("3_yxjd2")
 _DisplayName = "drink"
 ObjectBody = NodePath("../..")
-StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(1, -0.05), Vector2(2, 0.1)])
+StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(1, -0.05), Vector2(2, 0.1), Vector2(3, -0.1)])
 
 [node name="Work" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.0451, 0, -36.9326)
@@ -154,8 +154,8 @@ DisplayName = "Work"
 [node name="SimpleInteraction" parent="NavigationRegion3D/Buildings/Work/SmartObject" index="0"]
 _DisplayName = "MakeMoney"
 _interactionType = 1
-_interactionDuraction = 2.0
-StatChangesVectors = Array[Vector2]([Vector2(1, -0.5), Vector2(2, 0.2)])
+_interactionDuraction = 5.0
+StatChangesVectors = Array[Vector2]([Vector2(1, -0.5), Vector2(2, 0.1), Vector2(3, 0.5)])
 
 [editable path="TownFolk/NPC"]
 [editable path="NavigationRegion3D/Buildings/Bar"]

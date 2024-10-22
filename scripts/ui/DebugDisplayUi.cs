@@ -14,10 +14,12 @@ public partial class DebugDisplayUi : Control
 	private Label _hungerValueLabel;
 	private Label _energyValueLabel;
 	private Label _socialValueLabel;
+	private Label _moneyValueLabel;
 	
 	private float _hungerValue;
 	private float _energyValue;
 	private float _socialValue;
+	private float _moneyValue;
 	
 
 	public override void _Ready()
@@ -26,6 +28,7 @@ public partial class DebugDisplayUi : Control
 		_hungerValueLabel = GetNode<Label>("BoxContainer/HungerCont/HungerLabelValue");
 		_energyValueLabel = GetNode<Label>("BoxContainer/EnergyCont/EnergyLabelValue");
 		_socialValueLabel = GetNode<Label>("BoxContainer/SocialCont/SocialLabelValue");
+		_moneyValueLabel = GetNode<Label>("BoxContainer/MoneyCont/MoneyLabelValue");
 		
 		//debug message display
 		_debugSignal = GetNode<CustomSignals>("/root/CustomSignals");
@@ -40,6 +43,7 @@ public partial class DebugDisplayUi : Control
 		_hungerValueLabel.Text = _hungerValue.ToString("F4",CultureInfo.InvariantCulture);
 		_energyValueLabel.Text = _energyValue.ToString("F4",CultureInfo.InvariantCulture);
 		_socialValueLabel.Text = _socialValue.ToString("F4",CultureInfo.InvariantCulture);
+		_moneyValueLabel.Text = _moneyValue.ToString("F4",CultureInfo.InvariantCulture);
 		
 	}
 
@@ -53,6 +57,7 @@ public partial class DebugDisplayUi : Control
 		needsDictionary.TryGetValue("hunger", out _hungerValue);
 		needsDictionary.TryGetValue("energy", out _energyValue);
 		needsDictionary.TryGetValue("social", out _socialValue);
+		needsDictionary.TryGetValue("money", out _moneyValue);
 		
 	}
 }

@@ -31,7 +31,7 @@ public abstract partial class BaseInteraction: Node
     
     //x => enum type, y=change(0-1)
     [Export]protected Godot.Collections.Array<Vector2> StatChangesVectors;
-    protected List<InteractionStatChange> StatChanges;
+    public List<InteractionStatChange> StatChanges;
 
     public override void _Ready()
     {
