@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://de7ngl7o8gc1r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8q3nb"]
+size = Vector3(1.5, 2, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fphcp"]
+albedo_color = Color(0.00265391, 0.0613138, 0.0361924, 1)
+
+[node name="Bus" type="VehicleBody3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+size = Vector3(1.5, 2, 5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+shape = SubResource("BoxShape3D_8q3nb")
+
+[node name="frontRightWheel" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.678, 0.5, 1.558)
+use_as_steering = true
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="frontRightWheel"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+height = 0.2
+material = SubResource("StandardMaterial3D_fphcp")
+
+[node name="frontLeftWheel" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.676798, 0.5, 1.558)
+use_as_steering = true
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="frontLeftWheel"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+height = 0.2
+material = SubResource("StandardMaterial3D_fphcp")
+
+[node name="backRightWheel" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.678, 0.5, -1.61336)
+use_as_traction = true
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="backRightWheel"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+height = 0.2
+material = SubResource("StandardMaterial3D_fphcp")
+
+[node name="backLeftWheel" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.676798, 0.5, -1.61336)
+use_as_traction = true
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="backLeftWheel"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+height = 0.2
+material = SubResource("StandardMaterial3D_fphcp")
