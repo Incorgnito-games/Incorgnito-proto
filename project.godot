@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SmartObjectManager="*res://scripts/Systems/SmartObjectManager.cs"
 CustomSignals="*res://scripts/CustomSignals.cs"
+WorldClock="*res://scripts/WorldClock.cs"
 
 [dotnet]
 

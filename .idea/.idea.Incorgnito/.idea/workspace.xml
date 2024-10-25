@@ -5,17 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3089ef88-b898-4c23-8aa0-76bdd709130d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/scripts/WorldClock.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/actors/npc.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/actors/npc.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/building.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/building.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/city_scene.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/city_scene.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/ui/debug_display.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/ui/debug_display.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Systems/SimpleInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Systems/SimpleInteraction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/actors/ai/BaseAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/actors/ai/BaseAi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/actors/ai/GeneralAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/actors/ai/GeneralAi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/objects/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/objects/Building.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/objects/BusRoute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/objects/BusRoute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/ui/DebugDisplayUi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/ui/DebugDisplayUi.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -30,22 +47,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Executable.Player.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.27146813&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;need__based__npc&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Executable.Player.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "XThreadsFramesViewSplitterKey": "0.38963965",
+    "git-widget-placeholder": "need__based__npc",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Executable.Player">
     <configuration name="Player GDScript" type="GDSCRIPT_DEBUG_RUN_CONFIGURATION" factoryName="GdScriptRunFactory" show_console_on_std_err="false" show_console_on_std_out="false" port="6006">
       <option name="address" value="127.0.0.1" />
@@ -111,5 +128,14 @@
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="RunExe">
+        <watch expression="knowBuilding.IsPublicBuilding" />
+        <watch expression="knowBuilding.Name" />
+        <watch expression="knowBuilding.Owners" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

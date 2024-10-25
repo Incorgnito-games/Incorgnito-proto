@@ -1,4 +1,5 @@
 using Godot.Collections;
+using Incorgnito.scripts.actors.npc;
 using Incorgnito.scripts.ui;
 
 namespace Incorgnito.scripts.actors.ai;
@@ -14,29 +15,11 @@ public enum EStat
 }
 public abstract partial class BaseAi : Node
 {
-	[ExportGroup("Initial Need Values")]
-	[Export] private float _initialHunger = 0.5f;
-	[Export] private float _initialEnergy = 0.5f;
-	[Export] private float _initialSocial = 0.5f;
-	[Export] private float _initialMoney = 1f;
-
-	[ExportGroup("Need Decay Rates")]
-	[Export] private float _baseHungerDecay = 0.005f;
-	[Export] private float _baseEnergyDecay = 0.005f;
-	[Export] private float _baseSocialDecay = 0.005f;
-	[Export] private float _baseMoneyDecay = 0f;
-    
-	public float CurrentHunger { get; protected set; }
-	public float CurrentEnergy { get; protected set; }
-	public float CurrentSocial { get; protected set; }
-	public float CurrentMoney { get; protected set; }
 	
-	[ExportGroup("Character Setup")]	
-	[Export] protected float Speed = 5.0f;
 	[Export] private float _interactionDelay = 3f;
 	
 	[ExportGroup("Dependencies")]
-	[Export] protected CharacterBody3D Npc;
+	[Export] protected NpcCharacter Npc;
 	[Export] protected NavigationAgent3D NavAgent;
 
 	protected Dictionary<string, float> NeedsDictionary;
@@ -55,14 +38,11 @@ public abstract partial class BaseAi : Node
 	public override void _Ready()
 	{
 		NeedsDictionary = new Dictionary<string, float>();
-		CurrentHunger = _initialHunger;
-		CurrentEnergy = _initialEnergy;
-		CurrentSocial = _initialSocial;
-		CurrentMoney = _initialMoney;
-		NeedsDictionary.Add("hunger", CurrentHunger);
-		NeedsDictionary.Add("energy", CurrentEnergy);
-		NeedsDictionary.Add("social", CurrentSocial);
-		NeedsDictionary.Add("money", CurrentMoney);
+		
+		NeedsDictionary.Add("hunger", Npc.CurrentHunger);
+		NeedsDictionary.Add("energy", Npc.CurrentEnergy);
+		NeedsDictionary.Add("social", Npc.CurrentSocial);
+		NeedsDictionary.Add("money", Npc.CurrentMoney);
 
 		_newVelocity = new Vector3();
 		_debugSignal = GetNode<CustomSignals>("/root/CustomSignals");
@@ -113,15 +93,12 @@ public abstract partial class BaseAi : Node
 
 	public override void _Process(double delta)
 	{
-		CurrentHunger = Mathf.Clamp(CurrentHunger - _baseHungerDecay * (float)delta, 0,1);
-		CurrentEnergy = Mathf.Clamp(CurrentEnergy - _baseEnergyDecay * (float)delta, 0, 1);
-		CurrentSocial = Mathf.Clamp(CurrentSocial - _baseSocialDecay * (float)delta, 0, 1);
-		CurrentMoney = Mathf.Clamp(CurrentMoney - _baseMoneyDecay * (float)delta, 0, 1);
+	
         
-		NeedsDictionary["hunger"] = CurrentHunger;
-		NeedsDictionary["energy"] = CurrentEnergy;
-		NeedsDictionary["social"] = CurrentSocial;
-		NeedsDictionary["money"] = CurrentMoney;
+		NeedsDictionary["hunger"] = Npc.CurrentHunger;
+		NeedsDictionary["energy"] = Npc.CurrentEnergy;
+		NeedsDictionary["social"] = Npc.CurrentSocial;
+		NeedsDictionary["money"] = Npc.CurrentMoney;
 		
 		 _debugSignal.EmitSignal(nameof(_debugSignal.DebugStatsDisplay),NeedsDictionary);
 	}
@@ -142,16 +119,16 @@ public abstract partial class BaseAi : Node
 
 	public void UpdateIndividualStat(EStat target, float amount)
 	{
-		GD.Print($"Update {target} by {amount}");
+		// GD.Print($"Update {target} by {amount}");
 		switch (target)
 		{
-			case EStat.Hunger: CurrentHunger += amount;
+			case EStat.Hunger: Npc.CurrentHunger += amount;
 				break;
-			case EStat.Energy: CurrentEnergy += amount;
+			case EStat.Energy: Npc.CurrentEnergy += amount;
 				break;
-			case EStat.Social: CurrentSocial += amount;
+			case EStat.Social: Npc.CurrentSocial += amount;
 				break;
-			case EStat.Money: CurrentMoney += amount;
+			case EStat.Money: Npc.CurrentMoney += amount;
 				break;
 			default:
 				GD.PrintErr("unknown stat fall through");
@@ -166,7 +143,7 @@ public abstract partial class BaseAi : Node
 		//move npc
 		_newVelocity =(NavAgent.GetNextPathPosition() - Npc.GlobalPosition).Normalized();
 		
-		Npc.Velocity = _newVelocity * Speed;
+		Npc.Velocity = _newVelocity * Npc.Speed;
 		if (!Npc.MoveAndSlide())
 		{
 			GD.PrintErr($"Hit something on the way to {SelectedObject.DisplayName}");

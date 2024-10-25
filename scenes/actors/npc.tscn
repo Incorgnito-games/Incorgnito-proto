@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cko4ymg5gdbnl"]
+[gd_scene load_steps=6 format=3 uid="uid://cko4ymg5gdbnl"]
 
+[ext_resource type="Script" path="res://scripts/actors/npc/NpcCharacter.cs" id="1_jna1t"]
 [ext_resource type="Script" path="res://scripts/actors/ai/GeneralAi.cs" id="1_ojjbw"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_be2ns"]
+albedo_color = Color(0.00392157, 0.0117647, 0.0117647, 1)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8t4yn"]
+material = SubResource("StandardMaterial3D_be2ns")
 radius = 0.2
 height = 1.0
 radial_segments = 12
@@ -13,6 +18,7 @@ height = 1.0
 
 [node name="NPC" type="CharacterBody3D"]
 collision_layer = 2
+script = ExtResource("1_jna1t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_8t4yn")
@@ -25,7 +31,6 @@ avoidance_enabled = true
 
 [node name="Ai" type="Node" parent="." node_paths=PackedStringArray("Npc", "NavAgent")]
 script = ExtResource("1_ojjbw")
-Speed = 25.0
 _interactionDelay = 2.0
 Npc = NodePath("..")
 NavAgent = NodePath("../NavigationAgent3D")

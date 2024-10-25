@@ -4,7 +4,9 @@ using Incorgnito.scripts.Systems;
 using System.Linq;
 
 namespace Incorgnito.scripts.actors.ai;
+
 using Godot;
+using objects;
 
 public partial class GeneralAi: BaseAi
 {
@@ -33,16 +35,16 @@ public partial class GeneralAi: BaseAi
         switch (target)
         {
             case EStat.Hunger:
-                currentValue = CurrentHunger;
+                currentValue = Npc.CurrentHunger;
                 break;
             case EStat.Energy:
-                currentValue = CurrentEnergy;
+                currentValue = Npc.CurrentEnergy;
                 break;
             case EStat.Social:
-                currentValue = CurrentSocial;
+                currentValue = Npc.CurrentSocial;
                 break;
             case EStat.Money:
-                currentValue = CurrentMoney;
+                currentValue = Npc.CurrentMoney;
                 break;
             default:
                 GD.PrintErr("unknown stat fall through");
@@ -73,13 +75,21 @@ public partial class GeneralAi: BaseAi
             {
                 if (!interaction.CanPerform())
                     continue;
-                
+
+                var knowBuilding = smartObject.ObjectBody as Building;
+
+                if (!knowBuilding.IsPublicBuilding && !knowBuilding.Owners.Contains(Npc.ToString()))
+                {
+                    continue;
+                }
                 var score = ScoreInteraction(interaction);
                 
                 unsortedInteractions.Add(new ScoredInteraction(){ TargetObject = smartObject, 
                                                                 Interaction = interaction, 
                                                                 Score = score});
-
+          
+                
+                
             }
         }
         

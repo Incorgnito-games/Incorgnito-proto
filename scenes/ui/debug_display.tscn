@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://doykdnuj1ivj8"]
+[gd_scene load_steps=4 format=3 uid="uid://doykdnuj1ivj8"]
 
 [ext_resource type="Script" path="res://scripts/ui/DebugDisplayUi.cs" id="1_iqc5e"]
 
@@ -6,6 +6,10 @@
 font_color = Color(1, 0.215686, 0.145098, 1)
 outline_size = 6
 outline_color = Color(0.0470588, 0.0509804, 0.0431373, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_blon3"]
+font_size = 96
+font_color = Color(8.95232e-06, 0.762785, 0.125783, 1)
 
 [node name="DebugDisplayUi" type="Control"]
 layout_mode = 3
@@ -78,3 +82,12 @@ offset_bottom = 1724.0
 scale = Vector2(6.93445, 3.86735)
 text = "This is the Debug message"
 label_settings = SubResource("LabelSettings_jipr2")
+
+[node name="WorldClockLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4245.83
+offset_top = 42.0
+offset_right = 4491.83
+offset_bottom = 174.0
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_blon3")

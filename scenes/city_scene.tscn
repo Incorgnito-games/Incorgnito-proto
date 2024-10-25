@@ -46,10 +46,11 @@ radius = 5.0
 [node name="CityScene" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.5, 0.224144, -0.836516, 0, 0.965926, 0.258819, 0.866025, -0.12941, 0.482963, -73.2915, 20, 14.4426)
+transform = Transform3D(0.5, 0.224144, -0.836516, 0, 0.965926, 0.258819, 0.866025, -0.12941, 0.482963, -69.1491, 20, 29.4097)
 projection = 1
+current = true
 fov = 45.0
-size = 45.0
+size = 53.333
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_364ig")
@@ -57,13 +58,6 @@ environment = SubResource("Environment_364ig")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(-0.836516, 0.0173376, -0.547668, -0.545085, 0.0756105, 0.834965, 0.0558857, 0.996987, -0.053799, 0, 16, 0)
 shadow_enabled = true
-
-[node name="TownFolk" type="Node" parent="."]
-
-[node name="NPC" parent="TownFolk" instance=ExtResource("1_2ue7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.093, -1.93984, 13.88)
-motion_mode = 1
-wall_min_slide_angle = 0.0174533
 
 [node name="street" type="Node" parent="."]
 
@@ -179,73 +173,77 @@ _DisplayName = "Drink"
 ObjectBody = NodePath("../..")
 StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(2, 0.1), Vector2(3, -0.1)])
 
-[node name="Home" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
+[node name="Home -(steve)" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0829, 0, -41.2365)
+IsPublicBuilding = false
 
-[node name="SmartObject" parent="NavigationRegion3D/Buildings/Home" index="3"]
+[node name="SmartObject" parent="NavigationRegion3D/Buildings/Home -(steve)" index="3"]
 DisplayName = "Home"
 
-[node name="SimpleInteraction" parent="NavigationRegion3D/Buildings/Home/SmartObject" index="0"]
+[node name="SimpleInteraction" parent="NavigationRegion3D/Buildings/Home -(steve)/SmartObject" index="0"]
 _DisplayName = "Sleep"
 _interactionType = 1
 _interactionDuraction = 3.0
 StatChangesVectors = Array[Vector2]([Vector2(1, 0.75)])
 
-[node name="SimpleInteraction2" type="Node" parent="NavigationRegion3D/Buildings/Home/SmartObject" index="1" node_paths=PackedStringArray("ObjectBody")]
+[node name="SimpleInteraction2" type="Node" parent="NavigationRegion3D/Buildings/Home -(steve)/SmartObject" index="1" node_paths=PackedStringArray("ObjectBody")]
 script = ExtResource("3_yxjd2")
 _DisplayName = "Drink"
 ObjectBody = NodePath("../..")
 StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(2, -0.1), Vector2(3, -0.1)])
 
-[node name="Home2" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
+[node name="Home - (bob)" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1519, 0, 11.4597)
+IsPublicBuilding = false
 
-[node name="SmartObject" parent="NavigationRegion3D/Buildings/Home2" index="3"]
+[node name="SmartObject" parent="NavigationRegion3D/Buildings/Home - (bob)" index="3"]
 DisplayName = "Home"
 
-[node name="SimpleInteraction" parent="NavigationRegion3D/Buildings/Home2/SmartObject" index="0"]
+[node name="SimpleInteraction" parent="NavigationRegion3D/Buildings/Home - (bob)/SmartObject" index="0"]
 _DisplayName = "Sleep"
 _interactionType = 1
 _interactionDuraction = 3.0
 StatChangesVectors = Array[Vector2]([Vector2(1, 0.75)])
 
-[node name="SimpleInteraction2" type="Node" parent="NavigationRegion3D/Buildings/Home2/SmartObject" index="1" node_paths=PackedStringArray("ObjectBody")]
+[node name="SimpleInteraction2" type="Node" parent="NavigationRegion3D/Buildings/Home - (bob)/SmartObject" index="1" node_paths=PackedStringArray("ObjectBody")]
 script = ExtResource("3_yxjd2")
 _DisplayName = "Drink"
 ObjectBody = NodePath("../..")
 StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(2, -0.1), Vector2(3, -0.1)])
 
-[node name="Home3" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
+[node name="Home - (suzy)" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0891, 0, 11.299)
+IsPublicBuilding = false
 
-[node name="SmartObject" parent="NavigationRegion3D/Buildings/Home3" index="3"]
+[node name="SmartObject" parent="NavigationRegion3D/Buildings/Home - (suzy)" index="3"]
 DisplayName = "Home"
 
-[node name="SimpleInteraction" parent="NavigationRegion3D/Buildings/Home3/SmartObject" index="0"]
+[node name="SimpleInteraction" parent="NavigationRegion3D/Buildings/Home - (suzy)/SmartObject" index="0"]
 _DisplayName = "Sleep"
 _interactionType = 1
 _interactionDuraction = 3.0
 StatChangesVectors = Array[Vector2]([Vector2(1, 0.75)])
 
-[node name="SimpleInteraction2" type="Node" parent="NavigationRegion3D/Buildings/Home3/SmartObject" index="1" node_paths=PackedStringArray("ObjectBody")]
+[node name="SimpleInteraction2" type="Node" parent="NavigationRegion3D/Buildings/Home - (suzy)/SmartObject" index="1" node_paths=PackedStringArray("ObjectBody")]
 script = ExtResource("3_yxjd2")
 _DisplayName = "Drink"
 ObjectBody = NodePath("../..")
 StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(2, -0.1), Vector2(3, -0.1)])
 
-[node name="Home4" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
+[node name="Home - (jennifer)" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42998, 0, -40.5939)
+IsPublicBuilding = false
 
-[node name="SmartObject" parent="NavigationRegion3D/Buildings/Home4" index="3"]
+[node name="SmartObject" parent="NavigationRegion3D/Buildings/Home - (jennifer)" index="3"]
 DisplayName = "Home"
 
-[node name="SimpleInteraction" parent="NavigationRegion3D/Buildings/Home4/SmartObject" index="0"]
+[node name="SimpleInteraction" parent="NavigationRegion3D/Buildings/Home - (jennifer)/SmartObject" index="0"]
 _DisplayName = "Sleep"
 _interactionType = 1
 _interactionDuraction = 3.0
 StatChangesVectors = Array[Vector2]([Vector2(1, 0.75)])
 
-[node name="SimpleInteraction2" type="Node" parent="NavigationRegion3D/Buildings/Home4/SmartObject" index="1" node_paths=PackedStringArray("ObjectBody")]
+[node name="SimpleInteraction2" type="Node" parent="NavigationRegion3D/Buildings/Home - (jennifer)/SmartObject" index="1" node_paths=PackedStringArray("ObjectBody")]
 script = ExtResource("3_yxjd2")
 _DisplayName = "Drink"
 ObjectBody = NodePath("../..")
@@ -269,51 +267,66 @@ _DisplayName = "drink"
 ObjectBody = NodePath("../..")
 StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(1, -0.05), Vector2(2, 0.1), Vector2(3, -0.1)])
 
-[node name="Work" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
+[node name="Work - (bob + suzy)" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.0451, 0, -36.9326)
+IsPublicBuilding = false
 
-[node name="SmartObject" parent="NavigationRegion3D/Buildings/Work" index="3"]
+[node name="SmartObject" parent="NavigationRegion3D/Buildings/Work - (bob + suzy)" index="3"]
 DisplayName = "Work"
 
-[node name="SimpleInteraction" parent="NavigationRegion3D/Buildings/Work/SmartObject" index="0"]
+[node name="SimpleInteraction" parent="NavigationRegion3D/Buildings/Work - (bob + suzy)/SmartObject" index="0"]
 _DisplayName = "MakeMoney"
 _interactionType = 1
 _interactionDuraction = 5.0
 StatChangesVectors = Array[Vector2]([Vector2(1, -0.5), Vector2(2, 0.1), Vector2(3, 0.5)])
 
-[node name="Work2" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
+[node name="Work - (steve)" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0513, 0, 35.5246)
+IsPublicBuilding = false
 
-[node name="SmartObject" parent="NavigationRegion3D/Buildings/Work2" index="3"]
+[node name="SmartObject" parent="NavigationRegion3D/Buildings/Work - (steve)" index="3"]
 DisplayName = "Work"
 
-[node name="SimpleInteraction" parent="NavigationRegion3D/Buildings/Work2/SmartObject" index="0"]
+[node name="SimpleInteraction" parent="NavigationRegion3D/Buildings/Work - (steve)/SmartObject" index="0"]
 _DisplayName = "MakeMoney"
 _interactionType = 1
 _interactionDuraction = 5.0
 StatChangesVectors = Array[Vector2]([Vector2(1, -0.5), Vector2(2, 0.1), Vector2(3, 0.5)])
 
-[node name="Work3" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
+[node name="Work - (jennifer)" parent="NavigationRegion3D/Buildings" instance=ExtResource("1_2jkkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.7763, 0, 23.6359)
+IsPublicBuilding = false
 
-[node name="SmartObject" parent="NavigationRegion3D/Buildings/Work3" index="3"]
+[node name="SmartObject" parent="NavigationRegion3D/Buildings/Work - (jennifer)" index="3"]
 DisplayName = "Work"
 
-[node name="SimpleInteraction" parent="NavigationRegion3D/Buildings/Work3/SmartObject" index="0"]
+[node name="SimpleInteraction" parent="NavigationRegion3D/Buildings/Work - (jennifer)/SmartObject" index="0"]
 _DisplayName = "MakeMoney"
 _interactionType = 1
 _interactionDuraction = 5.0
 StatChangesVectors = Array[Vector2]([Vector2(1, -0.5), Vector2(2, 0.1), Vector2(3, 0.5)])
+
+[node name="TownFolk" type="Node" parent="."]
+
+[node name="NPC" parent="TownFolk" node_paths=PackedStringArray("Home", "Work") instance=ExtResource("1_2ue7f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.093, -1.93984, 13.88)
+motion_mode = 1
+wall_min_slide_angle = 0.0174533
+Speed = 50.0
+CharacterFirstName = "steve"
+CharacterLastName = "wonder"
+Home = NodePath("../../NavigationRegion3D/Buildings/Home -(steve)")
+Work = NodePath("../../NavigationRegion3D/Buildings/Work - (steve)")
 
 [connection signal="body_entered" from="NavigationRegion3D/Obstacles/busStopSign/Area3D" to="street/Road/BusRoute" method="OnArea3dBodyEntered"]
 
-[editable path="TownFolk/NPC"]
 [editable path="NavigationRegion3D/Buildings/Bar"]
-[editable path="NavigationRegion3D/Buildings/Home"]
-[editable path="NavigationRegion3D/Buildings/Home2"]
-[editable path="NavigationRegion3D/Buildings/Home3"]
-[editable path="NavigationRegion3D/Buildings/Home4"]
+[editable path="NavigationRegion3D/Buildings/Home -(steve)"]
+[editable path="NavigationRegion3D/Buildings/Home - (bob)"]
+[editable path="NavigationRegion3D/Buildings/Home - (suzy)"]
+[editable path="NavigationRegion3D/Buildings/Home - (jennifer)"]
 [editable path="NavigationRegion3D/Buildings/Restaurant"]
-[editable path="NavigationRegion3D/Buildings/Work"]
-[editable path="NavigationRegion3D/Buildings/Work2"]
-[editable path="NavigationRegion3D/Buildings/Work3"]
+[editable path="NavigationRegion3D/Buildings/Work - (bob + suzy)"]
+[editable path="NavigationRegion3D/Buildings/Work - (steve)"]
+[editable path="NavigationRegion3D/Buildings/Work - (jennifer)"]
+[editable path="TownFolk/NPC"]

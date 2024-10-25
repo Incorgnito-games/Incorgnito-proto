@@ -1,4 +1,5 @@
 using Incorgnito.scripts.actors.ai;
+using Incorgnito.scripts.objects;
 using Microsoft.VisualBasic;
 
 namespace Incorgnito.scripts.Systems;
@@ -21,6 +22,12 @@ public partial class SimpleInteraction: BaseInteraction
     private List<PerformerData> CurrentPerformers = new List<PerformerData>();
     public override bool CanPerform()
     {
+        //this will be breaking if not building TODO: not this-->
+        var buildingObj = ObjectBody as Building;
+        if (buildingObj == null && !(buildingObj.IsPublicBuilding || buildingObj.Owners.Count > 0) )
+        {
+            return false;
+        }
         return NumCurrentActors < MaxSimultaneousActors;
     }
 

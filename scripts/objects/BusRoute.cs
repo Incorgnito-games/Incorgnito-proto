@@ -28,7 +28,7 @@ public partial class BusRoute : PathFollow3D
 
 	public void OnBusStopTimeout()
 	{
-		GD.Print("Signame Entered");
+		// GD.Print("Bus stop");
 		_currentBusSpeed = _busSpeed;
 	}
 

@@ -16,6 +16,7 @@ radius = 11.0
 
 [node name="Building" type="StaticBody3D"]
 script = ExtResource("1_cqo3d")
+IsPublicBuilding = true
 
 [node name="BuildingBox" type="CSGBox3D" parent="."]
 size = Vector3(15, 5, 15)

@@ -1,6 +1,8 @@
 namespace Incorgnito.scripts;
 
-public class Global
+public static class Global
 {
+
+ 
     
 }
