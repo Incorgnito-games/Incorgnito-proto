@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/ui/DebugDisplayUi.cs" id="1_iqc5e"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_blon3"]
+font_size = 96
+font_color = Color(8.95232e-06, 0.762785, 0.125783, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_jipr2"]
 font_color = Color(1, 0.215686, 0.145098, 1)
 outline_size = 6
 outline_color = Color(0.0470588, 0.0509804, 0.0431373, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_blon3"]
-font_size = 96
-font_color = Color(8.95232e-06, 0.762785, 0.125783, 1)
 
 [node name="DebugDisplayUi" type="Control"]
 layout_mode = 3
@@ -21,73 +21,242 @@ grow_vertical = 2
 scale = Vector2(0.24, 0.333333)
 script = ExtResource("1_iqc5e")
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
+[node name="WorldClockLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2233.33
+offset_top = 1677.0
+offset_right = 2615.33
+offset_bottom = 1809.0
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_blon3")
+
+[node name="DebugInfoContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(5.94625, 4.76667)
+scale = Vector2(5.66667, 3.04)
+alignment = 1
+
+[node name="SteveContainer" type="BoxContainer" parent="DebugInfoContainer"]
+layout_mode = 2
 vertical = true
 
-[node name="HungerCont" type="HBoxContainer" parent="BoxContainer"]
+[node name="HungerCont" type="HBoxContainer" parent="DebugInfoContainer/SteveContainer"]
 layout_mode = 2
 
-[node name="HungerLabel" type="Label" parent="BoxContainer/HungerCont"]
+[node name="HungerLabel" type="Label" parent="DebugInfoContainer/SteveContainer/HungerCont"]
 layout_mode = 2
 text = "Hunger:"
 
-[node name="HungerLabelValue" type="Label" parent="BoxContainer/HungerCont"]
+[node name="HungerLabelValue" type="Label" parent="DebugInfoContainer/SteveContainer/HungerCont"]
 layout_mode = 2
 text = "_"
 
-[node name="EnergyCont" type="HBoxContainer" parent="BoxContainer"]
+[node name="EnergyCont" type="HBoxContainer" parent="DebugInfoContainer/SteveContainer"]
 layout_mode = 2
 
-[node name="EnergyLabel" type="Label" parent="BoxContainer/EnergyCont"]
+[node name="EnergyLabel" type="Label" parent="DebugInfoContainer/SteveContainer/EnergyCont"]
 layout_mode = 2
 text = "Rest:
 "
 
-[node name="EnergyLabelValue" type="Label" parent="BoxContainer/EnergyCont"]
+[node name="EnergyLabelValue" type="Label" parent="DebugInfoContainer/SteveContainer/EnergyCont"]
 layout_mode = 2
 text = "_"
 
-[node name="SocialCont" type="HBoxContainer" parent="BoxContainer"]
+[node name="SocialCont" type="HBoxContainer" parent="DebugInfoContainer/SteveContainer"]
 layout_mode = 2
 
-[node name="SocailLabel" type="Label" parent="BoxContainer/SocialCont"]
+[node name="SocailLabel" type="Label" parent="DebugInfoContainer/SteveContainer/SocialCont"]
 layout_mode = 2
 text = "Social: "
 
-[node name="SocialLabelValue" type="Label" parent="BoxContainer/SocialCont"]
+[node name="SocialLabelValue" type="Label" parent="DebugInfoContainer/SteveContainer/SocialCont"]
 layout_mode = 2
 text = "_"
 
-[node name="MoneyCont" type="HBoxContainer" parent="BoxContainer"]
+[node name="MoneyCont" type="HBoxContainer" parent="DebugInfoContainer/SteveContainer"]
 layout_mode = 2
 
-[node name="MoneyLabel" type="Label" parent="BoxContainer/MoneyCont"]
+[node name="MoneyLabel" type="Label" parent="DebugInfoContainer/SteveContainer/MoneyCont"]
 layout_mode = 2
 text = "Money: "
 
-[node name="MoneyLabelValue" type="Label" parent="BoxContainer/MoneyCont"]
+[node name="MoneyLabelValue" type="Label" parent="DebugInfoContainer/SteveContainer/MoneyCont"]
 layout_mode = 2
 text = "_"
 
-[node name="DebugMessage" type="Label" parent="."]
-layout_mode = 0
-offset_left = 425.0
-offset_top = 1701.0
-offset_right = 629.0
-offset_bottom = 1724.0
-scale = Vector2(6.93445, 3.86735)
+[node name="DebugMessage" type="Label" parent="DebugInfoContainer/SteveContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 text = "This is the Debug message"
 label_settings = SubResource("LabelSettings_jipr2")
+autowrap_mode = 2
 
-[node name="WorldClockLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 4245.83
-offset_top = 42.0
-offset_right = 4491.83
-offset_bottom = 174.0
-text = "00:00:00"
-label_settings = SubResource("LabelSettings_blon3")
+[node name="BobContainer" type="BoxContainer" parent="DebugInfoContainer"]
+layout_mode = 2
+vertical = true
+
+[node name="HungerCont" type="HBoxContainer" parent="DebugInfoContainer/BobContainer"]
+layout_mode = 2
+
+[node name="HungerLabel" type="Label" parent="DebugInfoContainer/BobContainer/HungerCont"]
+layout_mode = 2
+text = "Hunger:"
+
+[node name="HungerLabelValue" type="Label" parent="DebugInfoContainer/BobContainer/HungerCont"]
+layout_mode = 2
+text = "_"
+
+[node name="EnergyCont" type="HBoxContainer" parent="DebugInfoContainer/BobContainer"]
+layout_mode = 2
+
+[node name="EnergyLabel" type="Label" parent="DebugInfoContainer/BobContainer/EnergyCont"]
+layout_mode = 2
+text = "Rest:
+"
+
+[node name="EnergyLabelValue" type="Label" parent="DebugInfoContainer/BobContainer/EnergyCont"]
+layout_mode = 2
+text = "_"
+
+[node name="SocialCont" type="HBoxContainer" parent="DebugInfoContainer/BobContainer"]
+layout_mode = 2
+
+[node name="SocailLabel" type="Label" parent="DebugInfoContainer/BobContainer/SocialCont"]
+layout_mode = 2
+text = "Social: "
+
+[node name="SocialLabelValue" type="Label" parent="DebugInfoContainer/BobContainer/SocialCont"]
+layout_mode = 2
+text = "_"
+
+[node name="MoneyCont" type="HBoxContainer" parent="DebugInfoContainer/BobContainer"]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="DebugInfoContainer/BobContainer/MoneyCont"]
+layout_mode = 2
+text = "Money: "
+
+[node name="MoneyLabelValue" type="Label" parent="DebugInfoContainer/BobContainer/MoneyCont"]
+layout_mode = 2
+text = "_"
+
+[node name="DebugMessage" type="Label" parent="DebugInfoContainer/BobContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "This is the Debug message"
+label_settings = SubResource("LabelSettings_jipr2")
+autowrap_mode = 2
+
+[node name="SuzyContainer" type="BoxContainer" parent="DebugInfoContainer"]
+layout_mode = 2
+vertical = true
+
+[node name="HungerCont" type="HBoxContainer" parent="DebugInfoContainer/SuzyContainer"]
+layout_mode = 2
+
+[node name="HungerLabel" type="Label" parent="DebugInfoContainer/SuzyContainer/HungerCont"]
+layout_mode = 2
+text = "Hunger:"
+
+[node name="HungerLabelValue" type="Label" parent="DebugInfoContainer/SuzyContainer/HungerCont"]
+layout_mode = 2
+text = "_"
+
+[node name="EnergyCont" type="HBoxContainer" parent="DebugInfoContainer/SuzyContainer"]
+layout_mode = 2
+
+[node name="EnergyLabel" type="Label" parent="DebugInfoContainer/SuzyContainer/EnergyCont"]
+layout_mode = 2
+text = "Rest:
+"
+
+[node name="EnergyLabelValue" type="Label" parent="DebugInfoContainer/SuzyContainer/EnergyCont"]
+layout_mode = 2
+text = "_"
+
+[node name="SocialCont" type="HBoxContainer" parent="DebugInfoContainer/SuzyContainer"]
+layout_mode = 2
+
+[node name="SocailLabel" type="Label" parent="DebugInfoContainer/SuzyContainer/SocialCont"]
+layout_mode = 2
+text = "Social: "
+
+[node name="SocialLabelValue" type="Label" parent="DebugInfoContainer/SuzyContainer/SocialCont"]
+layout_mode = 2
+text = "_"
+
+[node name="MoneyCont" type="HBoxContainer" parent="DebugInfoContainer/SuzyContainer"]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="DebugInfoContainer/SuzyContainer/MoneyCont"]
+layout_mode = 2
+text = "Money: "
+
+[node name="MoneyLabelValue" type="Label" parent="DebugInfoContainer/SuzyContainer/MoneyCont"]
+layout_mode = 2
+text = "_"
+
+[node name="DebugMessage" type="Label" parent="DebugInfoContainer/SuzyContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "This is the Debug message"
+label_settings = SubResource("LabelSettings_jipr2")
+autowrap_mode = 2
+
+[node name="JenniferContainer" type="BoxContainer" parent="DebugInfoContainer"]
+layout_mode = 2
+vertical = true
+
+[node name="HungerCont" type="HBoxContainer" parent="DebugInfoContainer/JenniferContainer"]
+layout_mode = 2
+
+[node name="HungerLabel" type="Label" parent="DebugInfoContainer/JenniferContainer/HungerCont"]
+layout_mode = 2
+text = "Hunger:"
+
+[node name="HungerLabelValue" type="Label" parent="DebugInfoContainer/JenniferContainer/HungerCont"]
+layout_mode = 2
+text = "_"
+
+[node name="EnergyCont" type="HBoxContainer" parent="DebugInfoContainer/JenniferContainer"]
+layout_mode = 2
+
+[node name="EnergyLabel" type="Label" parent="DebugInfoContainer/JenniferContainer/EnergyCont"]
+layout_mode = 2
+text = "Rest:
+"
+
+[node name="EnergyLabelValue" type="Label" parent="DebugInfoContainer/JenniferContainer/EnergyCont"]
+layout_mode = 2
+text = "_"
+
+[node name="SocialCont" type="HBoxContainer" parent="DebugInfoContainer/JenniferContainer"]
+layout_mode = 2
+
+[node name="SocailLabel" type="Label" parent="DebugInfoContainer/JenniferContainer/SocialCont"]
+layout_mode = 2
+text = "Social: "
+
+[node name="SocialLabelValue" type="Label" parent="DebugInfoContainer/JenniferContainer/SocialCont"]
+layout_mode = 2
+text = "_"
+
+[node name="MoneyCont" type="HBoxContainer" parent="DebugInfoContainer/JenniferContainer"]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="DebugInfoContainer/JenniferContainer/MoneyCont"]
+layout_mode = 2
+text = "Money: "
+
+[node name="MoneyLabelValue" type="Label" parent="DebugInfoContainer/JenniferContainer/MoneyCont"]
+layout_mode = 2
+text = "_"
+
+[node name="DebugMessage" type="Label" parent="DebugInfoContainer/JenniferContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "This is the Debug message"
+label_settings = SubResource("LabelSettings_jipr2")
+autowrap_mode = 2

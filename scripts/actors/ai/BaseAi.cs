@@ -1,3 +1,4 @@
+using System;
 using Godot.Collections;
 using Incorgnito.scripts.actors.npc;
 using Incorgnito.scripts.ui;
@@ -99,8 +100,9 @@ public abstract partial class BaseAi : Node
 		NeedsDictionary["energy"] = Npc.CurrentEnergy;
 		NeedsDictionary["social"] = Npc.CurrentSocial;
 		NeedsDictionary["money"] = Npc.CurrentMoney;
-		
-		 _debugSignal.EmitSignal(nameof(_debugSignal.DebugStatsDisplay),NeedsDictionary);
+
+	
+		 _debugSignal.EmitSignal(nameof(_debugSignal.DebugStatsDisplay),NeedsDictionary, Npc.CharacterFirstName);
 	}
 
 	protected abstract void PickInteraction();
@@ -110,7 +112,8 @@ public abstract partial class BaseAi : Node
 		interaction.UnLockInteraction();
 		
 		_debugSignal.EmitSignal(nameof(_debugSignal.DebugMessage), 
-			new string($"finsihed interaction: {interaction.DisplayName} waiting for {_interactionDelay} seconds"));
+			new string($"finsihed interaction: {interaction.DisplayName} waiting for {_interactionDelay} seconds"),
+			Npc.CharacterFirstName);
 		CurrentInteraction = null;
 		
 		SelectedObject = null;
@@ -149,7 +152,8 @@ public abstract partial class BaseAi : Node
 			GD.PrintErr($"Hit something on the way to {SelectedObject.DisplayName}");
 		}
 		_debugSignal.EmitSignal(nameof(_debugSignal.DebugMessage), 
-				new string($"going to {CurrentInteraction.DisplayName} at {SelectedObject.DisplayName}"));
+				new string($"going to {CurrentInteraction.DisplayName} at {SelectedObject.DisplayName}"),
+				Npc.CharacterFirstName);
 	}
 	
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cotw4n4ywong5"]
+[gd_scene load_steps=19 format=3 uid="uid://cotw4n4ywong5"]
 
 [ext_resource type="PackedScene" uid="uid://bdph25s15icec" path="res://scenes/building.tscn" id="1_2jkkl"]
 [ext_resource type="PackedScene" uid="uid://cko4ymg5gdbnl" path="res://scenes/actors/npc.tscn" id="1_2ue7f"]
@@ -42,6 +42,15 @@ albedo_color = Color(0.215686, 1, 0.0745098, 0.682353)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h7tw4"]
 radius = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bkjvq"]
+albedo_color = Color(0.0431373, 0.054902, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ro8ps"]
+albedo_color = Color(0.902816, 0.257159, 0.208033, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkyrd"]
+albedo_color = Color(0.909804, 0.466667, 1, 1)
 
 [node name="CityScene" type="Node3D"]
 
@@ -308,7 +317,7 @@ StatChangesVectors = Array[Vector2]([Vector2(1, -0.5), Vector2(2, 0.1), Vector2(
 
 [node name="TownFolk" type="Node" parent="."]
 
-[node name="NPC" parent="TownFolk" node_paths=PackedStringArray("Home", "Work") instance=ExtResource("1_2ue7f")]
+[node name="NPC-steve" parent="TownFolk" node_paths=PackedStringArray("Home", "Work") instance=ExtResource("1_2ue7f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.093, -1.93984, 13.88)
 motion_mode = 1
 wall_min_slide_angle = 0.0174533
@@ -317,6 +326,45 @@ CharacterFirstName = "steve"
 CharacterLastName = "wonder"
 Home = NodePath("../../NavigationRegion3D/Buildings/Home -(steve)")
 Work = NodePath("../../NavigationRegion3D/Buildings/Work - (steve)")
+
+[node name="NPC-bob" parent="TownFolk" node_paths=PackedStringArray("Home", "Work") instance=ExtResource("1_2ue7f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2584, -1.93984, -39.997)
+motion_mode = 1
+wall_min_slide_angle = 0.0174533
+Speed = 50.0
+CharacterFirstName = "bob"
+CharacterLastName = "builder"
+Home = NodePath("../../NavigationRegion3D/Buildings/Home - (bob)")
+Work = NodePath("../../NavigationRegion3D/Buildings/Work - (bob + suzy)")
+
+[node name="MeshInstance3D" parent="TownFolk/NPC-bob" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bkjvq")
+
+[node name="NPC-jennifer" parent="TownFolk" node_paths=PackedStringArray("Home", "Work") instance=ExtResource("1_2ue7f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.9345, -1.93984, 5.35993)
+motion_mode = 1
+wall_min_slide_angle = 0.0174533
+Speed = 50.0
+CharacterFirstName = "jennifer"
+CharacterLastName = "trout"
+Home = NodePath("../../NavigationRegion3D/Buildings/Home - (jennifer)")
+Work = NodePath("../../NavigationRegion3D/Buildings/Work - (jennifer)")
+
+[node name="MeshInstance3D" parent="TownFolk/NPC-jennifer" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ro8ps")
+
+[node name="NPC-suzy" parent="TownFolk" node_paths=PackedStringArray("Home", "Work") instance=ExtResource("1_2ue7f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0701, -1.93984, -24.2098)
+motion_mode = 1
+wall_min_slide_angle = 0.0174533
+Speed = 50.0
+CharacterFirstName = "suzy"
+CharacterLastName = "Que"
+Home = NodePath("../../NavigationRegion3D/Buildings/Home - (suzy)")
+Work = NodePath("../../NavigationRegion3D/Buildings/Work - (bob + suzy)")
+
+[node name="MeshInstance3D" parent="TownFolk/NPC-suzy" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dkyrd")
 
 [connection signal="body_entered" from="NavigationRegion3D/Obstacles/busStopSign/Area3D" to="street/Road/BusRoute" method="OnArea3dBodyEntered"]
 
@@ -329,4 +377,7 @@ Work = NodePath("../../NavigationRegion3D/Buildings/Work - (steve)")
 [editable path="NavigationRegion3D/Buildings/Work - (bob + suzy)"]
 [editable path="NavigationRegion3D/Buildings/Work - (steve)"]
 [editable path="NavigationRegion3D/Buildings/Work - (jennifer)"]
-[editable path="TownFolk/NPC"]
+[editable path="TownFolk/NPC-steve"]
+[editable path="TownFolk/NPC-bob"]
+[editable path="TownFolk/NPC-jennifer"]
+[editable path="TownFolk/NPC-suzy"]
