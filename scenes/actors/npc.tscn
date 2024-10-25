@@ -20,6 +20,15 @@ height = 1.0
 collision_layer = 2
 script = ExtResource("1_jna1t")
 
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41124, 0)
+pixel_size = 0.01
+billboard = 1
+modulate = Color(0.0152309, 0.0435525, 0.0133151, 1)
+outline_modulate = Color(0.968627, 0.654902, 0.729412, 1)
+text = "Name"
+font_size = 100
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_8t4yn")
 

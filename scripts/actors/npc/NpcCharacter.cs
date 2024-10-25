@@ -31,6 +31,7 @@ public partial class NpcCharacter : CharacterBody3D
 	[Export] public string CharacterLastName = "";
 	[Export] public Building Home;
 	[Export] public Building Work;
+	private Label3D _nameLabel;
 
 	public override string ToString()
 	{
@@ -45,6 +46,8 @@ public partial class NpcCharacter : CharacterBody3D
 		CurrentMoney = _initialMoney;
 		Home.Owners.Add($"{CharacterFirstName} {CharacterLastName}");
 		Work.Owners.Add($"{CharacterFirstName} {CharacterLastName}");
+		_nameLabel = GetNode<Label3D>("Label3D");
+		_nameLabel.Text = CharacterFirstName;
 	}
 
 	public override void _Process(double delta)

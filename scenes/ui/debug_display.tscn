@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://doykdnuj1ivj8"]
+[gd_scene load_steps=8 format=3 uid="uid://doykdnuj1ivj8"]
 
 [ext_resource type="Script" path="res://scripts/ui/DebugDisplayUi.cs" id="1_iqc5e"]
 
@@ -6,10 +6,26 @@
 font_size = 96
 font_color = Color(8.95232e-06, 0.762785, 0.125783, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_0tgtf"]
+font_size = 20
+font_color = Color(0, 0, 0.027451, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_jipr2"]
 font_color = Color(1, 0.215686, 0.145098, 1)
 outline_size = 6
 outline_color = Color(0.0470588, 0.0509804, 0.0431373, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gwqxd"]
+font_size = 20
+font_color = Color(0.210291, 0.121678, 0.669465, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h42fx"]
+font_size = 20
+font_color = Color(1, 0.0588235, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gkaan"]
+font_size = 19
+font_color = Color(0.977813, 0.328896, 0.324981, 1)
 
 [node name="DebugDisplayUi" type="Control"]
 layout_mode = 3
@@ -23,10 +39,10 @@ script = ExtResource("1_iqc5e")
 
 [node name="WorldClockLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 2233.33
-offset_top = 1677.0
-offset_right = 2615.33
-offset_bottom = 1809.0
+offset_left = 150.0
+offset_top = 1761.0
+offset_right = 532.0
+offset_bottom = 1893.0
 text = "00:00:00"
 label_settings = SubResource("LabelSettings_blon3")
 
@@ -40,6 +56,11 @@ alignment = 1
 [node name="SteveContainer" type="BoxContainer" parent="DebugInfoContainer"]
 layout_mode = 2
 vertical = true
+
+[node name="Label" type="Label" parent="DebugInfoContainer/SteveContainer"]
+layout_mode = 2
+text = "Steve:"
+label_settings = SubResource("LabelSettings_0tgtf")
 
 [node name="HungerCont" type="HBoxContainer" parent="DebugInfoContainer/SteveContainer"]
 layout_mode = 2
@@ -97,6 +118,11 @@ autowrap_mode = 2
 layout_mode = 2
 vertical = true
 
+[node name="Label" type="Label" parent="DebugInfoContainer/BobContainer"]
+layout_mode = 2
+text = "Bob:"
+label_settings = SubResource("LabelSettings_gwqxd")
+
 [node name="HungerCont" type="HBoxContainer" parent="DebugInfoContainer/BobContainer"]
 layout_mode = 2
 
@@ -153,6 +179,12 @@ autowrap_mode = 2
 layout_mode = 2
 vertical = true
 
+[node name="Label" type="Label" parent="DebugInfoContainer/SuzyContainer"]
+layout_mode = 2
+text = "Suzy:
+"
+label_settings = SubResource("LabelSettings_h42fx")
+
 [node name="HungerCont" type="HBoxContainer" parent="DebugInfoContainer/SuzyContainer"]
 layout_mode = 2
 
@@ -208,6 +240,12 @@ autowrap_mode = 2
 [node name="JenniferContainer" type="BoxContainer" parent="DebugInfoContainer"]
 layout_mode = 2
 vertical = true
+
+[node name="Label" type="Label" parent="DebugInfoContainer/JenniferContainer"]
+layout_mode = 2
+text = "Jennifer:
+"
+label_settings = SubResource("LabelSettings_gkaan")
 
 [node name="HungerCont" type="HBoxContainer" parent="DebugInfoContainer/JenniferContainer"]
 layout_mode = 2

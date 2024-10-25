@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3089ef88-b898-4c23-8aa0-76bdd709130d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/city_scene.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/city_scene.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/ui/debug_display.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/ui/debug_display.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/CustomSignals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/CustomSignals.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/actors/ai/BaseAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/actors/ai/BaseAi.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/ui/DebugDisplayUi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/ui/DebugDisplayUi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/actors/npc.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/actors/npc.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/actors/npc/NpcCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/actors/npc/NpcCharacter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
