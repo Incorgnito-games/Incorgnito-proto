@@ -1,4 +1,5 @@
 using Incorgnito.scripts.objects;
+using Incorgnito.scripts.Systems;
 
 namespace Incorgnito.scripts.actors.npc;
 
@@ -29,8 +30,8 @@ public partial class NpcCharacter : CharacterBody3D
 
 	[Export] public string CharacterFirstName = "John";
 	[Export] public string CharacterLastName = "";
-	[Export] public Building Home;
-	[Export] public Building Work;
+	[Export] public SmartObject Home;
+	[Export] public SmartObject Work;
 	private Label3D _nameLabel;
 
 	public override string ToString()

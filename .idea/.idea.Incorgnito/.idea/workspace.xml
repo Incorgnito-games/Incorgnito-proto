@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3089ef88-b898-4c23-8aa0-76bdd709130d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/actors/npc.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/actors/npc.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/building.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/building.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/city_scene.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/city_scene.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/objects/hotel.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/objects/hotel.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Systems/SimpleInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Systems/SimpleInteraction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Systems/SmartObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Systems/SmartObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/actors/ai/BaseAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/actors/ai/BaseAi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/actors/ai/GeneralAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/actors/ai/GeneralAi.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/actors/npc/NpcCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/actors/npc/NpcCharacter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/objects/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/objects/AreaObject.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +48,7 @@
   "keyToString": {
     ".NET Executable.Player.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "XThreadsFramesViewSplitterKey": "0.38963965",
+    "XThreadsFramesViewSplitterKey": "0.19435737",
     "git-widget-placeholder": "need__based__npc",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
@@ -116,14 +125,5 @@
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="RunExe">
-        <watch expression="knowBuilding.IsPublicBuilding" />
-        <watch expression="knowBuilding.Name" />
-        <watch expression="knowBuilding.Owners" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

@@ -5,8 +5,11 @@ using System.Collections.Generic;
 public partial class SmartObject : Node
 {
    [Export] public string DisplayName;
+   public List<string> Owners;
    [Export] public PhysicsBody3D ObjectBody;
    [Export] public float TargetDistanceTolerance = 12f;
+    [Export] public bool IsPublic { get; set; } = false;
+	public string DebugLabel;
    
     protected List<BaseInteraction> CachedInteractions = null;
 	
@@ -35,7 +38,11 @@ public partial class SmartObject : Node
 		}
 	}
 	public override void _Ready()
+	
 	{
+		Owners = new List<string>();
+		// _debugLabel = GetNode<Label3D>("Label3D");
+		CallDeferred(nameof(SetOwnership));
 		SmartObjectManager.Instance.RegisterSmartObject(this);
 		
 	}
@@ -43,6 +50,23 @@ public partial class SmartObject : Node
 	private void OnDestroy()
 	{
 		SmartObjectManager.Instance.DeregisterSmartObject(this);
+	}
+	void SetOwnership()
+	{
+		string ownersString = "";
+		for(var i = 0; i < Owners.Count; i++)
+		{
+			ownersString += Owners[i];
+			ownersString += "'s";
+			if (i == Owners.Count - 1)
+			{
+				continue;
+			}
+
+			ownersString += " and ";
+		}
+		 DebugLabel = new string($"{ownersString} {DisplayName}");
+		
 	}
 
 	public override void _Process(double delta)

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt4dx8nehgn41"]
+
+[ext_resource type="Script" path="res://scripts/Systems/SmartObject.cs" id="1_khe3b"]
+[ext_resource type="Script" path="res://scripts/Systems/SimpleInteraction.cs" id="2_p5lc2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_81h8g"]
+size = Vector3(1.575, 1, 2.45)
+
+[node name="Bed2" type="StaticBody3D"]
+transform = Transform3D(-8.1016e-08, -1.62032e-07, -1.85343, -1.62032e-07, 1.85343, -1.62032e-07, 1.85343, 1.62032e-07, -8.1016e-08, 5.67662, 0.382837, -6.42367)
+
+[node name="bedModel" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+size = Vector3(1.575, 0.2, 2.425)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_81h8g")
+
+[node name="SmartObject" type="Node" parent="." node_paths=PackedStringArray("ObjectBody")]
+script = ExtResource("1_khe3b")
+DisplayName = "Home"
+ObjectBody = NodePath("..")
+TargetDistanceTolerance = 1.0
+
+[node name="SimpleInteraction" type="Node" parent="SmartObject" node_paths=PackedStringArray("ObjectBody")]
+script = ExtResource("2_p5lc2")
+_DisplayName = "Sleep"
+_interactionType = 1
+_interactionDuraction = 3.0
+ObjectBody = NodePath("../..")
+StatChangesVectors = Array[Vector2]([Vector2(1, 0.75)])
+
+[node name="SimpleInteraction2" type="Node" parent="SmartObject" node_paths=PackedStringArray("ObjectBody")]
+script = ExtResource("2_p5lc2")
+_DisplayName = "Drink"
+ObjectBody = NodePath("../..")
+StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(2, -0.1), Vector2(3, -0.1)])

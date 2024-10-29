@@ -149,7 +149,12 @@ public abstract partial class BaseAi : Node
 		Npc.Velocity = _newVelocity * Npc.Speed;
 		if (!Npc.MoveAndSlide())
 		{
-			GD.PrintErr($"Hit something on the way to {SelectedObject.DisplayName}");
+			GD.PrintErr($"{Npc.CharacterFirstName} Hit something on the way to {SelectedObject.DisplayName}");
+		}
+
+		if (Npc.CharacterFirstName == "steve")
+		{
+			// GD.Print($"Global Pos:{Npc.GlobalPosition}   ---   Target: {NavAgent.TargetPosition}   ---   Target Distance {NavAgent.DistanceToTarget()}");
 		}
 		_debugSignal.EmitSignal(nameof(_debugSignal.DebugMessage), 
 				new string($"going to {CurrentInteraction.DisplayName} at {SelectedObject.DisplayName}"),

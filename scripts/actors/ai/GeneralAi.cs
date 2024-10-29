@@ -76,9 +76,9 @@ public partial class GeneralAi: BaseAi
                 if (!interaction.CanPerform())
                     continue;
 
-                var knowBuilding = smartObject.ObjectBody as Building;
+             
 
-                if (!knowBuilding.IsPublicBuilding && !knowBuilding.Owners.Contains(Npc.ToString()))
+                if (!smartObject.IsPublic && !smartObject.Owners.Contains(Npc.ToString()))
                 {
                     continue;
                 }
@@ -103,6 +103,7 @@ public partial class GeneralAi: BaseAi
 
         SelectedObject = sortedInteractions[selectedIndex].TargetObject;
         CurrentInteraction = sortedInteractions[selectedIndex].Interaction;
+        
         
         NavAgent.TargetDesiredDistance = SelectedObject.TargetDistanceTolerance;
         NavAgent.SetTargetPosition(SelectedObject.ObjectBody.GlobalPosition);

@@ -23,11 +23,11 @@ public partial class SimpleInteraction: BaseInteraction
     public override bool CanPerform()
     {
         //this will be breaking if not building TODO: not this-->
-        var buildingObj = ObjectBody as Building;
-        if (buildingObj == null && !(buildingObj.IsPublicBuilding || buildingObj.Owners.Count > 0) )
-        {
-            return false;
-        }
+        
+        // if (areaObj IsPublicArea: false} or {Owners.Count:<= 0} )
+        // {
+        //     return false;
+        // }
         return NumCurrentActors < MaxSimultaneousActors;
     }
 

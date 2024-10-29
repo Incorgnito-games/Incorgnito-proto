@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bdph25s15icec"]
 
-[ext_resource type="Script" path="res://scripts/objects/Building.cs" id="1_cqo3d"]
+[ext_resource type="Script" path="res://scripts/Systems/BuildingInfo.cs" id="1_b8u5s"]
 [ext_resource type="Script" path="res://scripts/Systems/SmartObject.cs" id="1_tytmk"]
 [ext_resource type="Script" path="res://scripts/Systems/SimpleInteraction.cs" id="2_etm8i"]
 
@@ -15,20 +15,19 @@ size = Vector3(15, 5, 15)
 radius = 11.0
 
 [node name="Building" type="StaticBody3D"]
-script = ExtResource("1_cqo3d")
-IsPublicBuilding = true
+script = ExtResource("1_b8u5s")
 
-[node name="BuildingBox" type="CSGBox3D" parent="."]
-size = Vector3(15, 5, 15)
-material = SubResource("StandardMaterial3D_b4cq2")
-
-[node name="Label3D" type="Label3D" parent="BuildingBox"]
-transform = Transform3D(-10.1118, 0, 0, 0, 12.3929, 0, 0, 0, 1, 0, 1, 0)
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-10.1118, 0, 0, 0, 12.3929, 0, 0, 0, 1, 0, 3, 0)
 billboard = 1
 text = "Building
 
 
 "
+
+[node name="Building" type="CSGBox3D" parent="."]
+size = Vector3(15, 5, 15)
+material = SubResource("StandardMaterial3D_b4cq2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_oxu0b")

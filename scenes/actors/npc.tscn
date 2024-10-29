@@ -13,6 +13,7 @@ height = 1.0
 radial_segments = 12
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d0naj"]
+margin = 0.001
 radius = 0.2
 height = 1.0
 
@@ -36,7 +37,13 @@ mesh = SubResource("CapsuleMesh_8t4yn")
 shape = SubResource("CapsuleShape3D_d0naj")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.75
+path_max_distance = 1.01
 avoidance_enabled = true
+radius = 0.2
+debug_enabled = true
+debug_path_custom_color = Color(0.0470588, 1, 0, 1)
+debug_path_custom_point_size = 8.0
 
 [node name="Ai" type="Node" parent="." node_paths=PackedStringArray("Npc", "NavAgent")]
 script = ExtResource("1_ojjbw")
