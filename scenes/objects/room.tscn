@@ -48,16 +48,17 @@ shape = SubResource("BoxShape3D_81h8g")
 script = ExtResource("2_j27oo")
 DisplayName = "Hotel Room"
 ObjectBody = NodePath("..")
-TargetDistanceTolerance = 0.65
+TargetDistanceTolerance = 1.2
 IsPublic = true
 
 [node name="SimpleInteraction" type="Node" parent="Bed/SmartObject" node_paths=PackedStringArray("ObjectBody")]
 script = ExtResource("3_13el5")
+MaxSimultaneousActors = 2
 _DisplayName = "Sleep"
 _interactionType = 1
 _interactionDuraction = 3.0
 ObjectBody = NodePath("../..")
-StatChangesVectors = Array[Vector2]([Vector2(1, 0.75), Vector2(3, -0.25)])
+StatChangesVectors = Array[Vector2]([Vector2(1, 0.25), Vector2(3, -0.5)])
 
 [node name="SimpleInteraction2" type="Node" parent="Bed/SmartObject" node_paths=PackedStringArray("ObjectBody")]
 script = ExtResource("3_13el5")

@@ -14,7 +14,8 @@ public enum ENpc
 	Steve,
 	Bob,
 	Jennifer,
-	Suzy
+	Suzy,
+	JohneyNpc
 }
 public partial class DebugDisplayUi : Control
 {

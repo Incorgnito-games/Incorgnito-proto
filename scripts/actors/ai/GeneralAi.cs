@@ -11,7 +11,7 @@ using objects;
 public partial class GeneralAi: BaseAi
 {
     [Export] protected float DefaultInteractScore = 0f;
-    [Export] protected int InteractionPickSize = 1;
+    [Export] protected int InteractionPickSize = 3;
     float ScoreInteraction(BaseInteraction interaction)
     {
         if (interaction.StatChanges.Count == 0)
@@ -20,6 +20,7 @@ public partial class GeneralAi: BaseAi
         }
 
         float score = 0f;
+        
 
         foreach (var change in interaction.StatChanges)
         {
@@ -82,7 +83,11 @@ public partial class GeneralAi: BaseAi
                 {
                     continue;
                 }
+
+                float distance = Npc.GlobalPosition.DistanceTo(smartObject.ObjectBody.GlobalPosition);
+                float distanceMultiplier = 1 / (1 + distance); //closer objects get higher score
                 var score = ScoreInteraction(interaction);
+                            score *= distanceMultiplier;
                 
                 unsortedInteractions.Add(new ScoredInteraction(){ TargetObject = smartObject, 
                                                                 Interaction = interaction, 

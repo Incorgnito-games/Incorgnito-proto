@@ -1,25 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://w8urh20ufour"]
+[gd_scene load_steps=7 format=3 uid="uid://w8urh20ufour"]
 
 [ext_resource type="Material" uid="uid://b7oqv7o2ns6ec" path="res://assets/obj/hotel/hotelWalls.tres" id="1_4jtd6"]
+[ext_resource type="PackedScene" uid="uid://baincq0pc6rpk" path="res://scenes/objects/barTable.tscn" id="1_d3tvg"]
 [ext_resource type="PackedScene" uid="uid://cejmskwroyeur" path="res://scenes/objects/room.tscn" id="1_e8yhv"]
 [ext_resource type="PackedScene" uid="uid://bu8ay846poj7t" path="res://scenes/objects/stairs.tscn" id="2_e6qy6"]
 [ext_resource type="Material" uid="uid://duia1x6xv0hbv" path="res://assets/obj/hotel/hotel_floors.tres" id="3_yrgxf"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_ovqo2"]
+vertices = PackedVector3Array(-3.18297, 0.248035, -3.228, -2.38297, 0.248035, -3.228, -2.38297, -0.951965, -5.028, -3.18297, -1.15196, -6.228, -3.18297, -0.951965, -5.228, -1.58297, -1.15196, -5.028, -0.78297, -1.15196, -6.228, -1.58297, -2.15196, -3.228, -0.78297, -2.15196, -3.228, -0.78297, -1.15196, -5.228, -3.18297, 3.24804, -3.228, -2.38297, 3.24804, -3.228, -2.38297, 2.04804, -5.028, -3.18297, 1.84804, -6.228, -3.18297, 1.84804, -5.228, -1.58297, 1.84804, -5.028, -0.78297, 1.84804, -6.228, -1.58297, 0.848035, -3.228, -0.78297, 0.848035, -3.228, -0.78297, 1.84804, -5.228)
+polygons = [PackedInt32Array(3, 2, 4), PackedInt32Array(4, 2, 1), PackedInt32Array(4, 1, 0), PackedInt32Array(2, 3, 5), PackedInt32Array(5, 3, 6), PackedInt32Array(6, 9, 5), PackedInt32Array(5, 9, 7), PackedInt32Array(7, 9, 8), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 11), PackedInt32Array(14, 11, 10), PackedInt32Array(12, 13, 15), PackedInt32Array(15, 13, 16), PackedInt32Array(16, 19, 15), PackedInt32Array(15, 19, 17), PackedInt32Array(17, 19, 18)]
+cell_size = 0.2
+cell_height = 0.2
+agent_height = 1.0
+agent_radius = 0.4
+agent_max_climb = 0.2
 
 [node name="Hotel" type="Node3D"]
 
 [node name="level1" type="Node3D" parent="."]
 
-[node name="room" parent="level1" instance=ExtResource("1_e8yhv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+[node name="FoodTable" parent="level1" instance=ExtResource("1_d3tvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.63961, 0.263623, -3.82669)
 
-[node name="room2" parent="level1" instance=ExtResource("1_e8yhv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.90059)
+[node name="FoodTable2" parent="level1" instance=ExtResource("1_d3tvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9499, 0.263623, 1.12272)
 
-[node name="room3" parent="level1" instance=ExtResource("1_e8yhv")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1)
-
-[node name="stairs" parent="level1" instance=ExtResource("2_e6qy6")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1)
+[node name="FoodTable3" parent="level1" instance=ExtResource("1_d3tvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06314, 0.263623, -1.23284)
 
 [node name="floor" type="CSGBox3D" parent="level1"]
 use_collision = true
@@ -31,22 +38,109 @@ material = ExtResource("3_yrgxf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00695, 1.52186, -0.014215)
 use_collision = true
 collision_mask = 2
-size = Vector3(0.1, 3, 2.5)
+size = Vector3(0.1, 3, 12)
 material = ExtResource("1_4jtd6")
 
 [node name="wall3" type="CSGBox3D" parent="level1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0301228, 1.52186, 5.94901)
+use_collision = true
+collision_mask = 2
+size = Vector3(0.1, 3, 10)
+material = ExtResource("1_4jtd6")
+
+[node name="wall4" type="CSGBox3D" parent="level1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0301228, 1.52186, -5.94213)
+use_collision = true
+collision_mask = 2
+size = Vector3(0.1, 3, 10)
+material = ExtResource("1_4jtd6")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="level1/wall4"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, -0.818928, 0)
+operation = 2
+radius = 2.24665
+height = 0.2
+
+[node name="wall2" type="CSGBox3D" parent="level1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99675, 1.52186, 0.0411215)
+use_collision = true
+collision_mask = 2
+size = Vector3(0.1, 3, 12)
+material = ExtResource("1_4jtd6")
+
+[node name="level2" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93393, 0)
+
+[node name="room" parent="level2" instance=ExtResource("1_e8yhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="SmartObject" parent="level2/room/Bed" index="2"]
+IsPublic = false
+
+[node name="room2" parent="level2" instance=ExtResource("1_e8yhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.90059)
+
+[node name="SmartObject" parent="level2/room2/Bed" index="2"]
+IsPublic = false
+
+[node name="SimpleInteraction" parent="level2/room2/Bed/SmartObject" index="0"]
+MaxSimultaneousActors = 2
+StatChangesVectors = Array[Vector2]([Vector2(1, 0.75), Vector2(3, -0.75)])
+
+[node name="SimpleInteraction2" parent="level2/room2/Bed/SmartObject" index="1"]
+MaxSimultaneousActors = 2
+
+[node name="room3" parent="level2" instance=ExtResource("1_e8yhv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1)
+
+[node name="floor" type="CSGBox3D" parent="level2"]
+use_collision = true
+collision_mask = 2
+size = Vector3(10, 0.1, 12)
+material = ExtResource("3_yrgxf")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="level2/floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97195, 0, 3.74437)
+operation = 2
+size = Vector3(3.25, 0.2, 3.8)
+
+[node name="wall" type="CSGBox3D" parent="level2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00695, 1.52186, -0.014215)
+use_collision = true
+collision_mask = 2
+size = Vector3(0.1, 3, 2.5)
+material = ExtResource("1_4jtd6")
+
+[node name="wall3" type="CSGBox3D" parent="level2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.02441, 1.52186, 5.94901)
 use_collision = true
 collision_mask = 2
 size = Vector3(0.1, 3, 6)
 material = ExtResource("1_4jtd6")
 
-[node name="wall2" type="CSGBox3D" parent="level1"]
+[node name="wall2" type="CSGBox3D" parent="level2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99675, 1.52186, 2.4849)
 use_collision = true
 collision_mask = 2
 size = Vector3(0.1, 3, 7)
 material = ExtResource("1_4jtd6")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.93393, -1)
+navigation_mesh = SubResource("NavigationMesh_ovqo2")
+
+[node name="stairslvl2" parent="NavigationRegion3D" instance=ExtResource("2_e6qy6")]
+
+[node name="stairslvel1" parent="NavigationRegion3D" instance=ExtResource("2_e6qy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.93393, 0)
+
+[node name="NavigationLink3D" type="NavigationLink3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64178, 0.0611327, -3.7532)
+start_position = Vector3(0.120473, 0.154768, 1.74064)
+
+[node name="NavigationLink3D2" type="NavigationLink3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -0.998048, 1.14209, -3.78384)
+start_position = Vector3(0.120473, 0.154768, 1.74064)
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(-10.1118, 0, 0, 0, 12.3929, 0, 0, 0, 1, 0, 4.14373, 0)
@@ -55,3 +149,6 @@ text = "Hotel
 
 
 "
+
+[editable path="level2/room"]
+[editable path="level2/room2"]

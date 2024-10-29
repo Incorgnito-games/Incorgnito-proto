@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://baincq0pc6rpk"]
+
+[ext_resource type="Script" path="res://scripts/Systems/SmartObject.cs" id="1_qsjm1"]
+[ext_resource type="Script" path="res://scripts/Systems/SimpleInteraction.cs" id="2_62r0r"]
+
+[node name="FoodTable" type="StaticBody3D"]
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+use_collision = true
+collision_mask = 2
+radius = 0.1
+height = 0.5
+
+[node name="tabletop" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24107, 0)
+use_collision = true
+collision_mask = 2
+height = 0.1
+
+[node name="SmartObject" type="Node" parent="." node_paths=PackedStringArray("ObjectBody")]
+script = ExtResource("1_qsjm1")
+DisplayName = "PubTable"
+ObjectBody = NodePath("..")
+TargetDistanceTolerance = 1.75
+IsPublic = true
+
+[node name="Eat" type="Node" parent="SmartObject" node_paths=PackedStringArray("ObjectBody")]
+script = ExtResource("2_62r0r")
+MaxSimultaneousActors = 3
+_DisplayName = "EatBarFood"
+_interactionType = 1
+_interactionDuraction = 2.0
+ObjectBody = NodePath("../..")
+StatChangesVectors = Array[Vector2]([Vector2(0, 0.1), Vector2(3, -0.05), Vector2(2, 0.1)])
+
+[node name="drink" type="Node" parent="SmartObject" node_paths=PackedStringArray("ObjectBody")]
+script = ExtResource("2_62r0r")
+MaxSimultaneousActors = 3
+_DisplayName = "DrinkAtTable"
+ObjectBody = NodePath("../..")
+StatChangesVectors = Array[Vector2]([Vector2(3, -0.1), Vector2(1, -0.05), Vector2(2, 0.05)])
+
+[node name="socialize" type="Node" parent="SmartObject" node_paths=PackedStringArray("ObjectBody")]
+script = ExtResource("2_62r0r")
+MaxSimultaneousActors = 3
+_DisplayName = "SocializeAtTable"
+_interactionDuraction = 1.0
+ObjectBody = NodePath("../..")
+StatChangesVectors = Array[Vector2]([Vector2(1, -0.05), Vector2(2, 0.1)])
