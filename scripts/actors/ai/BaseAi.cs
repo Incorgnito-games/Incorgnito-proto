@@ -154,7 +154,7 @@ public abstract partial class BaseAi : Node
 
 		if (Npc.CharacterFirstName == "steve")
 		{
-			GD.Print($"{Npc.CharacterFirstName} -- Global Pos:{Npc.GlobalPosition}   ---   Target: {NavAgent.TargetPosition}   ---   Target Distance {NavAgent.DistanceToTarget()}");
+			// GD.Print($"{Npc.CharacterFirstName} -- Global Pos:{Npc.GlobalPosition}   ---   Target: {NavAgent.TargetPosition}   ---   Target Distance {NavAgent.DistanceToTarget()}");
 		}
 		_debugSignal.EmitSignal(nameof(_debugSignal.DebugMessage), 
 				new string($"going to {CurrentInteraction.DisplayName} at {SelectedObject.DisplayName}"),

@@ -4,7 +4,11 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_blon3"]
 font_size = 96
-font_color = Color(8.95232e-06, 0.762785, 0.125783, 1)
+font_color = Color(0.62363, 0.011293, 1.44392e-07, 1)
+outline_size = 10
+outline_color = Color(0.0156863, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.654902)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0tgtf"]
 font_size = 20

@@ -4,11 +4,19 @@ using Godot;
 
 public partial class WorldClock: Node
 {
-    private double _timeAccumulator = 0.0;
-    private int _secondsInDay = 86400;
+    
+    private float _timeAccumulator = 0.0f;
+    private int _secondsInDay  = 86400;
+    private float _timeRatioMultiplier = 1f;
+    public int RealMinutesPerDay = 1440;
 
     public static  WorldClock Instance { get; private set; }
 
+    public void SetWorldClockSpeed(int realMinutesPerDay)
+    {
+        RealMinutesPerDay = realMinutesPerDay;
+        _timeRatioMultiplier = 1440.0f/realMinutesPerDay;
+    }
     public override void _Ready()
     {
         if (Instance != null)
@@ -23,7 +31,7 @@ public partial class WorldClock: Node
     }
     void UpdateTime(double delta)
     {
-        _timeAccumulator += delta;
+        _timeAccumulator += (float)delta * _timeRatioMultiplier;
 
         string timeString = Get24HourClockString(_timeAccumulator);
         // GD.Print(timeString);
@@ -34,6 +42,11 @@ public partial class WorldClock: Node
     public override void _Process(double delta)
     {
         UpdateTime(delta);
+    }
+
+    public float GetNormalizedTime()
+    {
+        return _timeAccumulator / _secondsInDay;
     }
 
     public string Get24HourClockTime()

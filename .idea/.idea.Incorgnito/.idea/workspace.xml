@@ -7,11 +7,9 @@
     <list default="true" id="3089ef88-b898-4c23-8aa0-76bdd709130d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/city_scene.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/city_scene.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/objects/hotel.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/objects/hotel.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/objects/room.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/objects/room.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/ui/debug_display.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/ui/debug_display.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/WorldClock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/WorldClock.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/actors/ai/BaseAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/actors/ai/BaseAi.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/actors/ai/GeneralAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/actors/ai/GeneralAi.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/ui/DebugDisplayUi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/ui/DebugDisplayUi.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +40,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Executable.Player.executor": "Debug",
+    ".NET Executable.Player.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "XThreadsFramesViewSplitterKey": "0.19435737",
     "git-widget-placeholder": "need__based__npc",
@@ -121,37 +119,5 @@
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/scripts/actors/ai/GeneralAi.cs</url>
-          <line>88</line>
-          <properties documentPath="C:\Users\catli\Documents\programming\godot\Incorgnito\scripts\actors\ai\GeneralAi.cs" containingFunctionPresentation="Method 'PickInteraction'">
-            <startOffsets>
-              <option value="2455" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2497" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/scripts/actors/ai/GeneralAi.cs</url>
-          <line>109</line>
-          <properties documentPath="C:\Users\catli\Documents\programming\godot\Incorgnito\scripts\actors\ai\GeneralAi.cs" containingFunctionPresentation="Method 'PickInteraction'">
-            <startOffsets>
-              <option value="3331" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3398" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -1,16 +1,27 @@
-[gd_scene load_steps=20 format=3 uid="uid://cotw4n4ywong5"]
+[gd_scene load_steps=23 format=3 uid="uid://cotw4n4ywong5"]
 
 [ext_resource type="PackedScene" uid="uid://bdph25s15icec" path="res://scenes/building.tscn" id="1_2jkkl"]
 [ext_resource type="PackedScene" uid="uid://cko4ymg5gdbnl" path="res://scenes/actors/npc.tscn" id="1_2ue7f"]
+[ext_resource type="Script" path="res://scripts/Systems/DayNight.cs" id="1_j4rfh"]
 [ext_resource type="Script" path="res://scripts/objects/BusRoute.cs" id="2_6tsma"]
 [ext_resource type="PackedScene" uid="uid://de7ngl7o8gc1r" path="res://scenes/actors/bus.tscn" id="3_cj70f"]
 [ext_resource type="PackedScene" uid="uid://w8urh20ufour" path="res://scenes/objects/hotel.tscn" id="3_hf3wl"]
 [ext_resource type="Script" path="res://scripts/Systems/SimpleInteraction.cs" id="3_yxjd2"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pkipv"]
+[sub_resource type="Gradient" id="Gradient_34iw0"]
+offsets = PackedFloat32Array(0, 0.946023, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0.054902, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v7piy"]
+gradient = SubResource("Gradient_34iw0")
+fill_from = Vector2(1, 0.521368)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_e7j3h"]
+night_sky = SubResource("GradientTexture2D_v7piy")
 
 [sub_resource type="Sky" id="Sky_5ja4l"]
-sky_material = SubResource("ProceduralSkyMaterial_pkipv")
+sky_material = SubResource("PhysicalSkyMaterial_e7j3h")
+process_mode = 3
 
 [sub_resource type="Environment" id="Environment_364ig"]
 background_mode = 2
@@ -66,18 +77,23 @@ albedo_color = Color(0.909804, 0.466667, 1, 1)
 [node name="CityScene" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.5, 0.224144, -0.836516, 0, 0.965926, 0.258819, 0.866025, -0.12941, 0.482963, -54.253, 18, 23.834)
+transform = Transform3D(0.5, 0.224144, -0.836516, 0, 0.965926, 0.258819, 0.866025, -0.12941, 0.482963, -54.253, 28, 23.834)
 projection = 1
 current = true
 fov = 45.0
-size = 15.0
+size = 52.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_364ig")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-0.836516, 0.0173376, -0.547668, -0.545085, 0.0756105, 0.834965, 0.0558857, 0.996987, -0.053799, 0, 16, 0)
+transform = Transform3D(-4.37114e-08, 0.361625, 0.932324, 0, 0.932324, -0.361625, -1, -1.58071e-08, -4.07532e-08, 2306.22, -740.618, -2009.12)
 shadow_enabled = true
+
+[node name="DayNightCycle" type="Node" parent="WorldEnvironment" node_paths=PackedStringArray("_lightSource")]
+script = ExtResource("1_j4rfh")
+_lightSource = NodePath("../DirectionalLight3D")
+_realMinutesPerDay = 1
 
 [node name="street" type="Node" parent="."]
 
