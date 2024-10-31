@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm7vp38owhpvx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_718rg"]
+size = Vector3(0.2, 6, 0.2)
+
+[node name="StreetLamp" type="StaticBody3D"]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+radius = 0.1
+height = 6.0
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.7395, -0.861756)
+radius = 0.1
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.883, -0.861756)
+size = Vector3(0.3, 0.3, 0.3)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.883, -0.476757)
+radius = 0.1
+height = 1.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.263991, 0.964525, 0, -0.964525, 0.263991, 0, 2.78782, -0.864887)
+shadow_enabled = true
+spot_range = 15.0
+spot_angle = 55.42
+spot_angle_attenuation = 3.03143
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_718rg")
