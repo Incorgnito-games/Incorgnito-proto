@@ -94,8 +94,8 @@ directional_shadow_blend_splits = true
 [node name="DayNightCycle" type="Node" parent="WorldEnvironment" node_paths=PackedStringArray("_lightSource")]
 script = ExtResource("1_j4rfh")
 _lightSource = NodePath("../Sun")
-_startHourOfDay = 3.0
-_realMinutesPerDay = 60
+_startHourOfDay = 4.0
+_realMinutesPerDay = 5
 
 [node name="street" type="Node" parent="."]
 
