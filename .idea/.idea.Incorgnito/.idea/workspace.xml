@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3089ef88-b898-4c23-8aa0-76bdd709130d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/actors/npc.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/actors/npc.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/city_scene.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/city_scene.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/objects/bed.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/objects/bed.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Systems/DayNight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Systems/DayNight.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/WorldClock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/WorldClock.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,22 +39,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Executable.Player.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "XThreadsFramesViewSplitterKey": "0.19435737",
-    "git-widget-placeholder": "need__based__npc",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Executable.Player.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.19435737&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;need__based__npc&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Executable.Player">
     <configuration name="Player GDScript" type="GDSCRIPT_DEBUG_RUN_CONFIGURATION" factoryName="GdScriptRunFactory" show_console_on_std_err="false" show_console_on_std_out="false" port="6006">
       <option name="address" value="127.0.0.1" />
@@ -104,6 +109,8 @@
       <workItem from="1729428669370" duration="857000" />
       <workItem from="1729430477142" duration="2094000" />
       <workItem from="1729432608976" duration="33462000" />
+      <workItem from="1730692779774" duration="4849000" />
+      <workItem from="1731287335738" duration="1816000" />
     </task>
     <servers />
   </component>

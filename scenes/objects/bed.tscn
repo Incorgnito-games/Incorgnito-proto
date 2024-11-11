@@ -10,7 +10,6 @@ size = Vector3(1.575, 1, 2.45)
 transform = Transform3D(-8.1016e-08, -1.62032e-07, -1.85343, -1.62032e-07, 1.85343, -1.62032e-07, 1.85343, 1.62032e-07, -8.1016e-08, 5.67662, 0.382837, -6.42367)
 
 [node name="bedModel" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 size = Vector3(1.575, 0.2, 2.425)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

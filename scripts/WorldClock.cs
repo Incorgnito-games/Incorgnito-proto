@@ -64,4 +64,6 @@ public partial class WorldClock: Node
 
         return $"{hours:D2}:{minutes:D2}:{seconds:D2}";
     }
+
+ 
 }

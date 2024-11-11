@@ -41,7 +41,6 @@ path_desired_distance = 0.75
 path_max_distance = 1.01
 avoidance_enabled = true
 radius = 0.2
-debug_enabled = true
 debug_path_custom_color = Color(0.0470588, 1, 0, 1)
 debug_path_custom_point_size = 8.0
 
