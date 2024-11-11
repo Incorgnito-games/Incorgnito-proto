@@ -63,3 +63,26 @@ damping_relaxation = 2.0
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 height = 0.2
 material = SubResource("StandardMaterial3D_fphcp")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.971122, 0.238584, 0, -0.238584, 0.971122, 0.519691, 0.333628, -2.37657)
+light_energy = 10.0
+spot_range = 10.0
+spot_attenuation = 1.5
+spot_angle = 15.17
+spot_angle_attenuation = 0.00112178
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.961435, 0.275033, 0, -0.275033, 0.961435, -0.453119, 0.333628, -2.37657)
+light_energy = 10.0
+spot_range = 5.99353
+spot_angle = 14.4737
+spot_angle_attenuation = 0.183011
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586752, 0.500404, -2.57071)
+omni_range = 0.238233
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.413248, 0.500404, -2.57071)
+omni_range = 0.238233

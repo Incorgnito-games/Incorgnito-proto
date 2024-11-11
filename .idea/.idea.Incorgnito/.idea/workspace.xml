@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3089ef88-b898-4c23-8aa0-76bdd709130d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/city_scene.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/city_scene.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Systems/DayNight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Systems/DayNight.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/WorldClock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/WorldClock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/actors/ai/BaseAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/actors/ai/BaseAi.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +107,7 @@
       <workItem from="1729430477142" duration="2094000" />
       <workItem from="1729432608976" duration="33462000" />
       <workItem from="1730692779774" duration="4849000" />
-      <workItem from="1731287335738" duration="7281000" />
+      <workItem from="1731287335738" duration="7961000" />
     </task>
     <servers />
   </component>
@@ -145,10 +141,10 @@
           <line>72</line>
           <properties documentPath="C:\Users\catli\Documents\programming\godot\Incorgnito\scripts\WorldClock.cs" containingFunctionPresentation="Method 'Get24HourClockString'">
             <startOffsets>
-              <option value="1764" />
+              <option value="1760" />
             </startOffsets>
             <endOffsets>
-              <option value="1811" />
+              <option value="1807" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
