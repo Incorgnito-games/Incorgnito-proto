@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3089ef88-b898-4c23-8aa0-76bdd709130d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Incorgnito/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/city_scene.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/city_scene.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Systems/DayNight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Systems/DayNight.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +109,7 @@
       <workItem from="1729430477142" duration="2094000" />
       <workItem from="1729432608976" duration="33462000" />
       <workItem from="1730692779774" duration="4849000" />
-      <workItem from="1731287335738" duration="7961000" />
+      <workItem from="1731287335738" duration="9802000" />
     </task>
     <servers />
   </component>
@@ -119,37 +121,5 @@
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/scripts/Systems/DayNight.cs</url>
-          <line>32</line>
-          <properties documentPath="C:\Users\catli\Documents\programming\godot\Incorgnito\scripts\Systems\DayNight.cs" containingFunctionPresentation="Method '_Process'">
-            <startOffsets>
-              <option value="787" />
-            </startOffsets>
-            <endOffsets>
-              <option value="895" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/scripts/WorldClock.cs</url>
-          <line>72</line>
-          <properties documentPath="C:\Users\catli\Documents\programming\godot\Incorgnito\scripts\WorldClock.cs" containingFunctionPresentation="Method 'Get24HourClockString'">
-            <startOffsets>
-              <option value="1760" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1807" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

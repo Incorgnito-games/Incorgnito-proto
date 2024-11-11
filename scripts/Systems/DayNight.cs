@@ -32,7 +32,7 @@ public partial class DayNight : Node
 		var normalizedTimeIncrement = 1.0f / (WorldClock.Instance.RealMinutesPerDay * 60.0f);
 		_normalizedTime = (WorldClock.Instance.GetNormalizedTime() + normalizedTimeIncrement * (float)delta) % 1.0f;
 		
-		
+		GD.Print(GetRotationPerSecond());
 		_lightSource.SetRotation(new Vector3(90 + (GetRotationPerSecond() * _normalizedTime), 0, 0));	
 		
 		// _lightSource.SetRotation(new Vector3(GetRotationPerSecond() * , 0, 0));	
