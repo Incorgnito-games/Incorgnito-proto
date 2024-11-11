@@ -7,16 +7,24 @@ public partial class WorldClock: Node
     
     private float _timeAccumulator = 0.0f;
     private int _secondsInDay  = 86400;
-    private float _timeRatioMultiplier = 1f;
+    public float TimeRatioMultiplier { get; private set; }= 1f;
     public int RealMinutesPerDay = 1440;
 
     public static  WorldClock Instance { get; private set; }
 
     public void SetWorldClockSpeed(int realMinutesPerDay)
     {
+     
         RealMinutesPerDay = realMinutesPerDay;
-        _timeRatioMultiplier = 1440.0f/realMinutesPerDay;
+        TimeRatioMultiplier = 1440.0f/realMinutesPerDay;
+        
     }
+
+    public void SetTimeOfDay(float time)
+    {
+        _timeAccumulator = time * 60 * 60;
+    } 
+    
     public override void _Ready()
     {
         if (Instance != null)
@@ -31,7 +39,7 @@ public partial class WorldClock: Node
     }
     void UpdateTime(double delta)
     {
-        _timeAccumulator += (float)delta * _timeRatioMultiplier;
+        _timeAccumulator += (float)delta * TimeRatioMultiplier;
 
         string timeString = Get24HourClockString(_timeAccumulator);
         // GD.Print(timeString);

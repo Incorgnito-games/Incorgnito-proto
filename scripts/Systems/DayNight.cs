@@ -9,6 +9,7 @@ public partial class DayNight : Node
 {
 	[Export] private DirectionalLight3D _lightSource;
 
+	[Export] private float _startHourOfDay;
 	[Export]
 	private int _realMinutesPerDay;
 	private float _normalizedTime;
@@ -17,6 +18,7 @@ public partial class DayNight : Node
 	public override void _Ready()
 	{
 		WorldClock.Instance.SetWorldClockSpeed(_realMinutesPerDay);
+		WorldClock.Instance.SetTimeOfDay(_startHourOfDay);
 		_lightSource.SetRotation(new Vector3(90,0,0));
 	}
 

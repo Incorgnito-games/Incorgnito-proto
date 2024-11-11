@@ -86,7 +86,7 @@ visible = false
 light_color = Color(0.522244, 0.664474, 0.933941, 1)
 
 [node name="Sun" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00193071, 10.4304, 0)
+transform = Transform3D(0.997489, 0.0708185, -2.2302e-10, -0.000543834, 0.00766, 0.999971, 0.0708164, -0.99746, 0.00767928, -0.00193071, 10.4304, 0)
 shadow_enabled = true
 shadow_reverse_cull_face = true
 directional_shadow_blend_splits = true
@@ -94,6 +94,7 @@ directional_shadow_blend_splits = true
 [node name="DayNightCycle" type="Node" parent="WorldEnvironment" node_paths=PackedStringArray("_lightSource")]
 script = ExtResource("1_j4rfh")
 _lightSource = NodePath("../Sun")
+_startHourOfDay = 3.0
 _realMinutesPerDay = 1
 
 [node name="street" type="Node" parent="."]

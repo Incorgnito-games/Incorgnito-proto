@@ -12,7 +12,7 @@ shadow_color = Color(0, 0, 0, 0.654902)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0tgtf"]
 font_size = 20
-font_color = Color(0, 0, 0.027451, 1)
+font_color = Color(0, 0.796078, 0.027451, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jipr2"]
 font_color = Color(1, 0.215686, 0.145098, 1)
